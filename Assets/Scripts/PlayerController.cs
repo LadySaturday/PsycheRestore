@@ -3,7 +3,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed ;
+    public static float movementSpeed ;
     public float rotationSpeed = 200.0f;
 
     Rigidbody rb;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift)) || (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift)))
         {
             // IF Shift key is pressed while walking, run
-            movementSpeed = 2;
+            //movementSpeed = 5;
             anim.SetFloat("Speed_f", 2);
         }
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S))
