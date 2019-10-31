@@ -7,12 +7,12 @@ public class AnnaController : MonoBehaviour
     public enum States { Idle, Chase, Attack };
     States currentState = States.Idle;
     private int counterValue = 0;
+    public int totalTime;
     private Transform player;
-    private float attackDistance = 1;
-    private bool isPlayerHidden = false;
-    public float chasingSpeed = 5;
+    public float attackDistance;
+    public float chasingSpeed;
     public bool playerHasToy = false;
-    public int toysLeft = 2;
+    public int toysLeft;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,6 @@ public class AnnaController : MonoBehaviour
     void Update()
     {
         FSM();
-        checkAllToysDelivered();
     }
 
     void FSM()
@@ -45,7 +44,7 @@ public class AnnaController : MonoBehaviour
 
     void Idle()
     {
-        if (counterValue == 30)
+        if (counterValue == totalTime)
         {
             ChangeState(States.Chase);
         }
@@ -83,20 +82,16 @@ public class AnnaController : MonoBehaviour
         currentState = toState;
     }
 
-    private void checkAllToysDelivered()
-    {
-        if (toysLeft == 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player" && playerHasToy == true)
         {
             playerHasToy = false;
             toysLeft--;
+            if (toysLeft == 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
