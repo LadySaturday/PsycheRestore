@@ -4,6 +4,8 @@ using UnityEngine.Networking;
 
 public class DotController : MonoBehaviour
 {
+
+
     public static float movementSpeed =1;
     public float rotationSpeed = 200.0f;
 
