@@ -7,14 +7,14 @@ public class CharlieController : MonoBehaviour
     public enum States { ToKitchen, Patrol, Chase, Attack };
     States currentState = States.ToKitchen;
     public Transform knife;
-    public float radiusArriving = 2;
-    public float radiusArriving_Stop = .5f;
+    private float radiusArriving = 1;
+    private float radiusArriving_Stop = 1f;
     public float maxSpeed = 5;
     public float speed = 0;
     public Transform hand;
     public float chaseDistance = 10;
-    public float attackDistance = 2;
-    public bool isPlayerHidden = false;
+    private float attackDistance = 2;
+    private bool isPlayerHidden = false;
     public float chasingSpeed = 2;
     Transform player;
     // Start is called before the first frame update
@@ -39,9 +39,7 @@ public class CharlieController : MonoBehaviour
         if (distance < radiusArriving_Stop)
         {
             Destroy(knife.gameObject);
-            Instantiate(knife, hand.position, this.transform.rotation);
-            //knife.SetParent(hand);
-            knife.parent = hand;
+            Instantiate(knife, hand.position, this.transform.rotation, hand);
             ChangeState(States.Patrol);
             return;
         }
@@ -106,6 +104,7 @@ public class CharlieController : MonoBehaviour
     void Attack()
     {
         Debug.Log("Attacking");
+        Destroy(player.gameObject);
         // kill player
     }
 
