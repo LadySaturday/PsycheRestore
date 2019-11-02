@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4000e8ac575f9444da92068c664061d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 10
+  totalTime: 20
   attackDistance: 1
   chasingSpeed: 5
   playerHasToy: 0
