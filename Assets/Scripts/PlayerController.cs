@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+//using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         ProcessJumping();
 
         moveDirection.y -= 10f * Time.deltaTime;
-            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);   
 
     }
@@ -37,9 +37,9 @@ public class PlayerController : MonoBehaviour
     void ProcessJumping()
     {
         CheckIfOnGround();
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
         {
-            Debug.Log("JumP");
+            //Debug.Log("JumP");
             transform.Translate(0, 0.75f, 0);
             isOnGround = false;
             anim.SetBool("Jump_b", true);
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void updateAnim()
     {
-        if ((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift)))//|| (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift))//temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
+        if ((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift))))////temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
         {
             //if(Input.GetKeyUp(KeyCode.LeftShift)) anim.SetFloat("Speed_f", 1);
             // IF Shift key is pressed while walking, run

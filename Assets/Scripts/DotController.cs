@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+//using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 
 public class DotController : MonoBehaviour
