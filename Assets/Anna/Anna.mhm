@@ -1,0 +1,38 @@
+# Written by MakeHuman 1.1.1
+version v1.1.1
+tags Anna
+camera 5.5 9.0 0.158845469026 0.883919996505 -0.0802269460474 1.3875
+modifier torso/torso-vshape-decr|incr 0.006000
+modifier nose/nose-width1-decr|incr -0.386000
+modifier macrodetails-universal/Muscle 0.000000
+modifier macrodetails/African 0.257000
+modifier macrodetails-proportions/BodyProportions 0.782000
+modifier torso/torso-scale-horiz-decr|incr 0.206000
+modifier macrodetails/Gender 0.000000
+modifier macrodetails-height/Height 0.771000
+modifier breast/BreastSize 0.500000
+modifier macrodetails/Age 0.151000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Asian 0.257000
+modifier head/head-age-decr|incr -0.284000
+modifier macrodetails/Caucasian 0.486000
+modifier chin/chin-jaw-drop-decr|incr -0.084000
+modifier nose/nose-curve-concave|convex -0.262000
+modifier buttocks/buttocks-volume-decr|incr 0.240000
+modifier nose/nose-compression-compress|uncompress 0.006000
+modifier chin/chin-bones-decr|incr -1.000000
+modifier macrodetails-universal/Weight 0.397000
+modifier nose/nose-width2-decr|incr -0.554000
+modifier nose/nose-width3-decr|incr -0.408000
+hair Braid01 eead6f99-d6c6-4f6b-b6c2-210459d7a62e
+eyelashes Eyelashes01 d533836f-13ad-4836-8b65-051108253cd2
+skeleton game_engine.mhskel
+eyebrows eyebrow002 a4e73c2f-3a12-47c8-b706-31a68cac6907
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+pose tpose.bvh
+clothes female_casualsuit02 9896f4a4-a718-4bdd-8482-52e1855160f6
+clothesHideFaces True
+skinMaterial skins/default.mhmat
+material Braid01 eead6f99-d6c6-4f6b-b6c2-210459d7a62e braid01.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/blue.mhmat
+subdivide False
