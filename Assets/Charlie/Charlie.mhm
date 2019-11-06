@@ -1,0 +1,31 @@
+# Written by MakeHuman 1.1.1
+version v1.1.1
+tags Charlie
+camera 0.0 0.0 -0.217757557143 0.508156576867 0.320542315565 1.875
+modifier macrodetails-universal/Muscle 0.000000
+modifier macrodetails/African 0.167500
+modifier macrodetails-proportions/BodyProportions 0.527000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails-height/Height 0.192000
+modifier breast/BreastSize 0.500000
+modifier nose/nose-base-down|up -0.286000
+modifier macrodetails/Age 0.154000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Asian 0.167500
+modifier head/head-fat-decr|incr -0.208000
+modifier head/head-age-decr|incr 0.076000
+modifier macrodetails/Caucasian 0.665000
+modifier macrodetails-universal/Weight 0.291000
+modifier nose/nose-width2-decr|incr -1.000000
+modifier nose/nose-width3-decr|incr -0.374000
+hair short01 766436e9-63ed-4f6a-afa9-99f3acff70a8
+skeleton game_engine.mhskel
+eyebrows eyebrow002 a4e73c2f-3a12-47c8-b706-31a68cac6907
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+pose tpose.bvh
+clothes male_casualsuit04 402c35f6-0cf4-4d22-af5b-0cc58fb2b617
+clothesHideFaces True
+skinMaterial skins/default.mhmat
+material short01 766436e9-63ed-4f6a-afa9-99f3acff70a8 short01.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/deepblue.mhmat
+subdivide False
