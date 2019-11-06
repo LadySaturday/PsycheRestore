@@ -559,8 +559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 411.7, y: 105.8}
+  m_AnchoredPosition: {x: 0.000022888, y: 90.45}
+  m_SizeDelta: {x: 582.8, y: 180.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498435895
 MonoBehaviour:
@@ -582,7 +582,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Psyche Restore
+  m_text: You have been killed by your own personality...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c40fbabf98a10a44093721e472bbd6d0, type: 2}
   m_sharedMaterial: {fileID: -9160312493988430508, guid: c40fbabf98a10a44093721e472bbd6d0,
@@ -652,12 +652,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1498435895}
-    characterCount: 14
+    characterCount: 47
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 7
+    wordCount: 8
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -831,7 +831,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Multiplayer
+  m_text: Revive
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c40fbabf98a10a44093721e472bbd6d0, type: 2}
   m_sharedMaterial: {fileID: -9160312493988430508, guid: c40fbabf98a10a44093721e472bbd6d0,
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2062311945}
-    characterCount: 11
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a2b9e2a607dd2143b58c44bc32410b4
+guid: 32de974c3db9e4756969d3fd9309e8e4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Electronic Highway Sign
+  fontName: Margarine
   fontNames:
-  - Electronic Highway Sign
+  - Margarine
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
