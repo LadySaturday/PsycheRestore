@@ -2,7 +2,7 @@
 //using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 
-public class DotController : MonoBehaviour
+public class DotController : NetworkBehaviour
 {
 
 
@@ -15,15 +15,23 @@ public class DotController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
 
     void Start()
-    {  
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
 
-
-            moveDirection.y -= 10f * Time.deltaTime;
+        moveDirection.y -= 10f * Time.deltaTime;
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);   
 

@@ -2,7 +2,7 @@
 //using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public static float movementSpeed ;
     public float rotationSpeed = 200.0f;
@@ -18,13 +18,22 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-   
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         updateAnim();
         ProcessJumping();
 
