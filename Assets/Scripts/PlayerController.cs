@@ -29,10 +29,7 @@ public class PlayerController : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        
 
         updateAnim();
         ProcessJumping();
@@ -45,6 +42,11 @@ public class PlayerController : NetworkBehaviour
 
     void ProcessJumping()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         CheckIfOnGround();
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
         {
@@ -87,6 +89,11 @@ public class PlayerController : NetworkBehaviour
 
     void updateAnim()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if ((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift))))////temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
         {
             //if(Input.GetKeyUp(KeyCode.LeftShift)) anim.SetFloat("Speed_f", 1);
