@@ -4,7 +4,12 @@ using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
 {
-    public static float movementSpeed ;
+    //public static float movementSpeed ;
+
+    // Updated 2019-11-06 //
+    public float movementSpeed;
+    public float runSpeed;
+
     public float rotationSpeed = 200.0f;
     public float jumpForce;
     bool isOnGround;
@@ -82,13 +87,19 @@ public class PlayerController : MonoBehaviour
         {
             //if(Input.GetKeyUp(KeyCode.LeftShift)) anim.SetFloat("Speed_f", 1);
             // IF Shift key is pressed while walking, run
-            anim.SetFloat("Speed_f", 2);
+            //anim.SetFloat("Speed_f", 2);
+
+            // Updated 2019-11-06 //
+            anim.SetFloat("Speed_f", runSpeed);
         }
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S))
         {
             // ELSE, set speed limit to walk speed
-            movementSpeed = 1;
-            anim.SetFloat("Speed_f", 1);
+            //movementSpeed = 1;
+            //anim.SetFloat("Speed_f", 1);
+
+            // Updated 2019-11-06 //
+            anim.SetFloat("Speed_f", movementSpeed);
         }
         else
         {
