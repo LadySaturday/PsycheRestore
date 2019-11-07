@@ -371,7 +371,6 @@ RectTransform:
   - {fileID: 439712665}
   - {fileID: 2118974845}
   - {fileID: 1818643961}
-  - {fileID: 782260698}
   m_Father: {fileID: 2105903715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -806,12 +805,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 260294785}
-  m_RootOrder: 5
+  m_Father: {fileID: 1818643961}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.55, y: -8.225}
+  m_AnchoredPosition: {x: -133.54997, y: 0}
   m_SizeDelta: {x: 107.1, y: 36.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782260699
@@ -1025,7 +1024,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: StartMenu
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1541,7 +1540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundOnOff: {fileID: 439712666}
   musicOnOff: {fileID: 2118974846}
-  soundVolumeSlider: {fileID: 0}
+  soundVolumeSlider: {fileID: 1818643962}
 --- !u!1 &1498435893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,19 +1814,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818643960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 322786592}
   - {fileID: 283161003}
   - {fileID: 820076158}
+  - {fileID: 782260698}
   m_Father: {fileID: 260294785}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187.09998, y: -10}
+  m_AnchoredPosition: {x: 187.09998, y: -1.7749939}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1818643962
