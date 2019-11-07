@@ -29,9 +29,12 @@ public class PlayerController : MonoBehaviour
         ProcessJumping();
 
         moveDirection.y -= 10f * Time.deltaTime;
+        if(Input.GetKey("a") || Input.GetKey("d")){
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);   
-
+        }else if(Input.GetKey("w") || Input.GetKey("s"))
+        {
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+        }
     }
 
     void ProcessJumping()
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     void updateAnim()
     {
-        if ((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift))))////temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.RightShift)))////temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
         {
             //if(Input.GetKeyUp(KeyCode.LeftShift)) anim.SetFloat("Speed_f", 1);
             // IF Shift key is pressed while walking, run
