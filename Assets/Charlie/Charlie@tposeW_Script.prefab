@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 1206641981556810607}
   - component: {fileID: 9094132951591996949}
   - component: {fileID: 6180186306830518395}
+  - component: {fileID: 1517987021}
   m_Layer: 0
   m_Name: Charlie@tposeW_Script
   m_TagString: Untagged
@@ -535,23 +536,66 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2802791091396579708}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa662479132c1e9448f60b963d9b5fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   knife: {fileID: 0}
-  speed: 2
+  speed: 3
   hand: {fileID: 6673700119779770585}
   chaseDistance: 10
   attackDistance: 1
-  chasingSpeed: 5
+  chasingSpeed: 6
+--- !u!195 &1517987021
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802791091396579708}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 0
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3029114064758820497
 GameObject:
   m_ObjectHideFlags: 0
