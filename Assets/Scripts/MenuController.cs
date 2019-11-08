@@ -38,24 +38,28 @@ public class MenuController : MonoBehaviour
     // Reset scene
     public void REVIVE(string levelName)
     {
-        //Scene level1 = SceneManager.GetSceneByName("Level1");
-        //Scene level2 = SceneManager.GetSceneByName("Level2");
-        //Scene level3 = SceneManager.GetSceneByName("Level3");
-        //Scene activeScene = SceneManager.GetActiveScene();
 
-        //if (level1.Equals(activeScene))
-        //{
-        //    SceneManager.LoadScene(levelName);
-        //}
-        //else if (level2.Equals(activeScene))
-        //{
-        //    SceneManager.LoadScene(levelName);
-        //}
-        //else if (level3.Equals(activeScene))
-        //{
-        //    SceneManager.LoadScene(levelName);
-        //}
-        
+
+
+        /*
+        Scene level1 = SceneManager.GetSceneByName("Level1");
+        Scene level2 = SceneManager.GetSceneByName("Level2");
+        Scene level3 = SceneManager.GetSceneByName("Level3");
+        Scene activeScene = SceneManager.GetActiveScene();
+
+        if (level1.Equals(activeScene))
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        else if (level2.Equals(activeScene))
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        else if (level3.Equals(activeScene))
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        */
     }
 
     // Sound, Music and Volume
