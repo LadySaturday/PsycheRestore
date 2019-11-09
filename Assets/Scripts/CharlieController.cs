@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class CharlieController : MonoBehaviour
 {
-    public enum States { ToKitchen, Patrol, Chase, Attack };
+    public enum States { ToKitchen, Patrol, Wait, Chase, Attack };
     public Transform[] nodes;
     private Transform[] points;
     private int destPoint = 0;
@@ -20,12 +20,15 @@ public class CharlieController : MonoBehaviour
     public float chasingSpeed;
     private Transform player;
     private NavMeshAgent navMeshAgent;
+    private Rigidbody rb;
     private Graph2 g;
+    private bool up = true;
     private string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        //rb = GetComponent<Rigidbody>();
         currentState = States.ToKitchen;
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.autoBraking = false;
@@ -33,10 +36,6 @@ public class CharlieController : MonoBehaviour
         points = new Transform[0];
 
         g = new Graph2(HeuristicStrategy.EuclideanDistance);
-        /*g.add_vertex_AStar('A', nodes[0].transform.position, new Dictionary<char, float>() { { 'B', findDistance(nodes[0], nodes[1]) } });
-        g.add_vertex_AStar('B', nodes[1].transform.position, new Dictionary<char, float>() { { 'A', findDistance(nodes[1], nodes[0]) }, { 'C', findDistance(nodes[1], nodes[2]) } });
-        g.add_vertex_AStar('C', nodes[2].transform.position, new Dictionary<char, float>() { { 'B', findDistance(nodes[2], nodes[1]) } });*/
-
         g.add_vertex_AStar('A', nodes[0].transform.position, new Dictionary<char, float>() { { 'B', findDistance(nodes[0], nodes[1]) }, { 'F', findDistance(nodes[0], nodes[5]) }, { 'G', findDistance(nodes[0], nodes[6]) } });
 
         g.add_vertex_AStar('B', nodes[1].transform.position, new Dictionary<char, float>() { { 'A', findDistance(nodes[1], nodes[0]) }, { 'C', findDistance(nodes[1], nodes[2]) }, { 'E', findDistance(nodes[1], nodes[4]) }, { 'F', findDistance(nodes[1], nodes[5]) } });
@@ -90,6 +89,38 @@ public class CharlieController : MonoBehaviour
         g.add_vertex_AStar('Z', nodes[25].transform.position, new Dictionary<char, float>() { { 'U', findDistance(nodes[25], nodes[20]) }, { 'T', findDistance(nodes[25], nodes[19]) }, { 'Y', findDistance(nodes[25], nodes[24]) } });
     }
 
+    void MoveVertical()
+    {
+        
+
+        /*Vector3 temp = transform.position;
+        //navMeshAgent.updatePosition = false;
+        if (up == true)
+        {
+            temp.y += 0.005f;
+            transform.position = temp;
+            //navMeshAgent.transform.position = temp;
+            //navMeshAgent.Move(temp);
+            //navMeshAgent.Move(temp);
+            //navMeshAgent.SetDestination(temp);
+            if (transform.position.y >= 7f)
+            {
+                up = false;
+            }
+        }
+        if (up == false)
+        {
+            temp.y -= 0.005f;
+            //navMeshAgent.Move(temp);
+            transform.position = temp;
+            if (transform.position.y <= 6.5f)
+            {
+                up = true;
+            }
+        }
+        navMeshAgent.updatePosition = true;*/
+    }
+
     private void PrintPath(List<char> shortest_path)
     {
         if (shortest_path == null)
@@ -118,6 +149,7 @@ public class CharlieController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MoveVertical();
         FSM();
     }
 
@@ -126,8 +158,9 @@ public class CharlieController : MonoBehaviour
         navMeshAgent.SetDestination(knife.transform.position);
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f)
         {
+            Vector3 pos = new Vector3(hand.transform.position.x, hand.transform.position.y, hand.transform.position.z);
             Destroy(knife.gameObject);
-            Instantiate(knife, hand.position, this.transform.rotation, hand);
+            Instantiate(knife, pos, this.transform.rotation, hand);
             ChangeState(States.Patrol);
         }
     }
@@ -135,15 +168,44 @@ public class CharlieController : MonoBehaviour
     void Patrol()
     {
         navMeshAgent.speed = speed;
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
-            if (destPoint < points.Length)
-                GotoNextPoint();
+        int i = Random.Range(1, 4);
+
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
+            if (destPoint < points.Length) {
+                if (i == 1)
+                {
+                    ChangeState(States.Wait);
+                }
+                else
+                {
+                    GotoNextPoint();
+                }
+            }
             else
+            {
                 MakeNewPath();
+            }
+        }
 
         float d2P = Vector3.Distance(transform.position, player.position);
         if (d2P < chaseDistance)
             ChangeState(States.Chase);
+    }
+
+    IEnumerator Wait()
+    {
+        Debug.Log("Waiting");
+        navMeshAgent.speed = 0;
+        //LookAround();
+        yield return new WaitForSeconds(Random.Range(4, 15));
+        navMeshAgent.speed = speed;
+        ChangeState(States.Patrol);
+    }
+
+    private void LookAround()
+    {
+        Vector3 randomDirection = new Vector3(0, Random.value, 0);
+        navMeshAgent.transform.Rotate(randomDirection);
     }
 
     private void ChangeState(States toState)
@@ -176,6 +238,9 @@ public class CharlieController : MonoBehaviour
                 break;
             case States.Patrol:
                 Patrol();
+                break;
+            case States.Wait:
+                StartCoroutine(Wait());
                 break;
             case States.Chase:
                 Chase();
