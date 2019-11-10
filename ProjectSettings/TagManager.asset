@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Bad
   - Powerup
+  - SecondaryPlayer
   layers:
   - Default
   - TransparentFX
