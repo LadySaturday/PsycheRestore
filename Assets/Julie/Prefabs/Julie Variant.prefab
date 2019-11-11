@@ -125,8 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e2d440cb85de54eb15268f9a50857f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0
+  runSpeed: 0
+  walkSpeed: 1
+  mouseRotate: 1
   rotationSpeed: 200
-  jumpForce: 0
+  isWalking: 0
+  strafe: 0
 --- !u!1001 &895849163436488216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,22 +142,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: ecb26d47550a99a4488486cd0ba3a4b9,
         type: 3}
       propertyPath: m_Name
-      value: Julie
+      value: Julie Variant
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: ecb26d47550a99a4488486cd0ba3a4b9,
         type: 3}
       propertyPath: m_TagString
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ecb26d47550a99a4488486cd0ba3a4b9,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 022cd8e9b1d113b41905bcb401343e62, type: 2}
-    - target: {fileID: -6057140222963153312, guid: ecb26d47550a99a4488486cd0ba3a4b9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ecb26d47550a99a4488486cd0ba3a4b9,
         type: 3}
@@ -207,6 +202,21 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ecb26d47550a99a4488486cd0ba3a4b9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ecb26d47550a99a4488486cd0ba3a4b9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 022cd8e9b1d113b41905bcb401343e62, type: 2}
+    - target: {fileID: -6057140222963153312, guid: ecb26d47550a99a4488486cd0ba3a4b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ecb26d47550a99a4488486cd0ba3a4b9,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
