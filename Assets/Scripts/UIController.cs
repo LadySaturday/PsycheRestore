@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class UIController : MonoBehaviour
         {
             Debug.Log("Next Level");
             Destroy(GameObject.Find("Charlie"));
+            SceneManager.LoadScene("WinScene");
         }
         if (collectibleImage.texture != null)
         {
