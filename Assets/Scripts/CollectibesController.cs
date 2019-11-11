@@ -34,6 +34,7 @@ public class CollectibesController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log("OnTriggerEnter");
         UIController.SetImage(image);
         Destroy(gameObject);
     }

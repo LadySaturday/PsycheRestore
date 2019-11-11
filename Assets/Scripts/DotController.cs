@@ -24,11 +24,11 @@ public class DotController : MonoBehaviour
         moveDirection.y -= 10f * Time.deltaTime;
 
         // updated by Yizhi 11/10/2019
-        if (Input.GetKey("right") || Input.GetKey("left"))
+        if (Input.GetKey("a") || Input.GetKey("d"))
         {
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
         }
-        else if (Input.GetKey("up") || Input.GetKey("down"))
+        if (Input.GetKey("w") || Input.GetKey("s"))
         {
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
         }

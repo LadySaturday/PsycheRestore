@@ -175,6 +175,7 @@ public class CharlieController : MonoBehaviour
         navMeshAgent.speed = 0;
         transform.GetChild(0).gameObject.SetActive(true);
         Destroy(secondaryPlayer.gameObject);
+        GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
         transform.GetChild(0).gameObject.SetActive(false);
         navMeshAgent.speed = speed;
