@@ -6,7 +6,7 @@ public class DotController : MonoBehaviour
 {
 
 
-    public static float movementSpeed =1;
+    public static float movementSpeed =3;
     public float rotationSpeed = 200.0f;
 
 
@@ -21,11 +21,17 @@ public class DotController : MonoBehaviour
 
     void Update()
     {
+        moveDirection.y -= 10f * Time.deltaTime;
 
-
-            moveDirection.y -= 10f * Time.deltaTime;
-            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);   
+        // updated by Yizhi 11/10/2019
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
+        }
+        if (Input.GetKey("w") || Input.GetKey("s"))
+        {
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+        }
 
     }
 
