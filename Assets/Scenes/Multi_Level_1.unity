@@ -83247,6 +83247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1654397795}
   - component: {fileID: 1654397796}
+  - component: {fileID: 1654397797}
   m_Layer: 0
   m_Name: Pills
   m_TagString: Untagged
@@ -83285,6 +83286,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
+--- !u!65 &1654397797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654397794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4277401, y: 0.3032651, z: 1.5159016}
+  m_Center: {x: -0.39456844, y: -0.34836745, z: -0.41548824}
 --- !u!1 &1676409685
 GameObject:
   m_ObjectHideFlags: 0
