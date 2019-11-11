@@ -4,6 +4,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class CharlieController : MonoBehaviour
 {
@@ -254,7 +255,8 @@ public class CharlieController : MonoBehaviour
 
     void Attack()
     {
-        Destroy(player.gameObject);
+          Destroy(player.gameObject);//causes camera to be destroyed
+       // SceneManager.LoadScene("DeathScene");
     }
 
     void FSM()

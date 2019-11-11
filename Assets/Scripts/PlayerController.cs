@@ -6,11 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     // Updated 2019-11-06 //
     public float movementSpeed=1;
-    public float runSpeed=2;
+    public float runSpeed=5;
+    public float walkSpeed = 1;
     bool isOnGround;
     Rigidbody rb;
     private Vector3 moveDirection = Vector3.zero;
     private Animator anim;
+    public bool mouseRotate = true;
+    public float rotationSpeed = 200f;
+    public bool isWalking = false;
+    public int strafe=0;//0=idle, 1=left, 2=right
+
+
 
     void Start()
     {
@@ -24,17 +31,51 @@ public class PlayerController : MonoBehaviour
         updateAnim();
         ProcessJumping();
 
-        moveDirection.y -= 10f * Time.deltaTime;
-        transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X")) * Mathf.Sign(Input.GetAxis("Horizontal")), Space.World);//mouse rotate
-        // updated by Yizhi 11/10/2019
-       // if (Input.GetKey("right") || Input.GetKey("left"))
-        //{
-        //    transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
-       // }
-        if (Input.GetKey("up") || Input.GetKey("down"))
+        //moveDirection.y -= 10f * Time.deltaTime;
+
+
+        if (mouseRotate)
         {
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X")) * Mathf.Sign(Input.GetAxis("Horizontal")), Space.World);//mouse rotate
+
+            if (Input.GetKey("up") || Input.GetKey("down"))
+            {
+                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+            }
+
+            if (Input.GetKey("left"))
+            {
+                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0,0 );
+                strafe = 1;
+            }
+            else if (Input.GetKey("right"))
+            {
+                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+                strafe = 2;
+            }
+            else
+            {
+                
+                strafe = 0;
+            }
         }
+        else//traditional keyboard controls-- can implement menu to choose rotation style
+        {
+            // updated by Yizhi 11/10/2019
+            if (Input.GetKey("up") || Input.GetKey("down"))
+            {
+                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+            }
+            if (Input.GetKey("right") || Input.GetKey("left"))
+            {
+                 transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+          
+            }
+          
+        }
+
+        
+        
 
     }
 
@@ -80,29 +121,30 @@ public class PlayerController : MonoBehaviour
 
     void updateAnim()
     {
-        if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightShift))))////temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
-        {
-            //if(Input.GetKeyUp(KeyCode.LeftShift)) anim.SetFloat("Speed_f", 1);
-            // IF Shift key is pressed while walking, run
-            //anim.SetFloat("Speed_f", 2);
 
-            // Updated 2019-11-06 //
-            anim.SetFloat("Speed_f", runSpeed);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow))
-        {
-            // ELSE, set speed limit to walk speed
-            //movementSpeed = 1;
-            //anim.SetFloat("Speed_f", 1);
-
+            anim.SetInteger("strafe", strafe);
+      
+            if ((Input.GetKey(KeyCode.RightShift))&&(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow)))//(Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift) ||//temporarily removed until network controls are added. Left keyboard belongs to julie, right keyboard belongs to dot
+            {
+                // Updated 2019-11-06 //
+                anim.SetFloat("Speed_f", movementSpeed);
+                movementSpeed = runSpeed;
+            }
+            else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow))
+            {
+            
             // Updated 2019-11-06 //
             anim.SetFloat("Speed_f", movementSpeed);
-        }
-        else
-        {
-            //ELSE idle
-            anim.SetFloat("Speed_f", 0);
+                movementSpeed = walkSpeed;
+            }
+          
+            else
+            {
+                //ELSE idle
+                anim.SetFloat("Speed_f", 0);
 
-        }
+            }
+       
+       
     }
 }
