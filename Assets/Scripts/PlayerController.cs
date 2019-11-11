@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-   
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }

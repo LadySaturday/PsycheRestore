@@ -256,7 +256,7 @@ public class CharlieController : MonoBehaviour
     void Attack()
     {
           Destroy(player.gameObject);//causes camera to be destroyed
-       // SceneManager.LoadScene("DeathScene");
+          SceneManager.LoadScene("DeathScene");
     }
 
     void FSM()
