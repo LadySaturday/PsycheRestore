@@ -25,6 +25,10 @@ public class CharlieController : MonoBehaviour
     private bool up = true;
     private string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    // Yizhi 11/10/2019
+    Transform secondaryPlayer;
+    float stopDistance = 2;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -87,6 +91,9 @@ public class CharlieController : MonoBehaviour
         g.add_vertex_AStar('Y', nodes[24].transform.position, new Dictionary<char, float>() { { 'S', findDistance(nodes[24], nodes[18]) }, { 'X', findDistance(nodes[24], nodes[23]) }, { 'T', findDistance(nodes[24], nodes[19]) }, { 'Z', findDistance(nodes[24], nodes[25]) } });
 
         g.add_vertex_AStar('Z', nodes[25].transform.position, new Dictionary<char, float>() { { 'U', findDistance(nodes[25], nodes[20]) }, { 'T', findDistance(nodes[25], nodes[19]) }, { 'Y', findDistance(nodes[25], nodes[24]) } });
+
+        // Yizhi 11/10/2019
+        secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
     }
 
     void MoveVertical()
@@ -151,6 +158,26 @@ public class CharlieController : MonoBehaviour
     {
         MoveVertical();
         FSM();
+
+        // Yizhi 11/10/2019
+        float d2P = Vector3.Distance(transform.position, secondaryPlayer.position);
+        if (d2P <= stopDistance)
+        {
+            Debug.Log("d2P <= stopDistance");
+            StartCoroutine(Stop());
+        }
+    }
+
+    // Yizhi 11/10/2019
+    IEnumerator Stop()
+    {
+        Debug.Log("Stopping");
+        navMeshAgent.speed = 0;
+        transform.GetChild(0).gameObject.SetActive(true);
+        Destroy(secondaryPlayer.gameObject);
+        yield return new WaitForSeconds(5);
+        transform.GetChild(0).gameObject.SetActive(false);
+        navMeshAgent.speed = speed;
     }
 
     void ToKitchen()
