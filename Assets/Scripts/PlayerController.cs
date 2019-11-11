@@ -4,21 +4,12 @@ using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
 {
-    //public static float movementSpeed ;
-
     // Updated 2019-11-06 //
-    public float movementSpeed;
-    public float runSpeed;
-
-    public float rotationSpeed = 200.0f;
-    public float jumpForce;
+    public float movementSpeed=1;
+    public float runSpeed=2;
     bool isOnGround;
-
     Rigidbody rb;
     private Vector3 moveDirection = Vector3.zero;
-
-
-    // reference to character's Animator component
     private Animator anim;
 
     void Start()
@@ -34,12 +25,12 @@ public class PlayerController : MonoBehaviour
         ProcessJumping();
 
         moveDirection.y -= 10f * Time.deltaTime;
-
+        transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X")) * Mathf.Sign(Input.GetAxis("Horizontal")), Space.World);//mouse rotate
         // updated by Yizhi 11/10/2019
-        if (Input.GetKey("right") || Input.GetKey("left"))
-        {
-            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
-        }
+       // if (Input.GetKey("right") || Input.GetKey("left"))
+        //{
+        //    transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);//change to Q and R for rotate
+       // }
         if (Input.GetKey("up") || Input.GetKey("down"))
         {
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
@@ -52,7 +43,6 @@ public class PlayerController : MonoBehaviour
         CheckIfOnGround();
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
         {
-            //Debug.Log("JumP");
             transform.Translate(0, 0.75f, 0);
             isOnGround = false;
             anim.SetBool("Jump_b", true);
@@ -78,7 +68,6 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider != null)
                 {
                     isOnGround = true;
-                    //isJumping = false; REMOVED
                 }
                 else
                 {
