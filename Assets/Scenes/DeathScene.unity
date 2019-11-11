@@ -346,7 +346,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1366874237}
-        m_MethodName: REVIVE
+        m_MethodName: LOAD_LEVEL
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
