@@ -38,7 +38,7 @@ public class MenuController : MonoBehaviour
     // Reset scene
     public void REVIVE(string levelName)
     {
-
+        SceneManager.LoadScene(levelName);
 
 
         /*

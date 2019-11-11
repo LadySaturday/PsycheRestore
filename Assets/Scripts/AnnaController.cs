@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnnaController : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class AnnaController : MonoBehaviour
     {
         Debug.Log("Attacking");
         Destroy(player.gameObject);
+        SceneManager.LoadScene("DeathScene");
     }
 
     IEnumerator Counter()

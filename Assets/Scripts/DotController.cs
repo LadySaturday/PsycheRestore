@@ -4,12 +4,8 @@ using UnityEngine.Networking;
 
 public class DotController : MonoBehaviour
 {
-
-
     public static float movementSpeed =3;
     public float rotationSpeed = 200.0f;
-
-
 
     Rigidbody rb;
     private Vector3 moveDirection = Vector3.zero;
