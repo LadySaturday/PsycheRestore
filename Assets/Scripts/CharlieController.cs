@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class CharlieController : MonoBehaviour
 {
-    public enum States { ToKitchen, Patrol, Wait, Chase, Attack };
+    public enum States { ToKitchen, Patrol, Chase, Attack };
     public Transform[] nodes;
     private Transform[] points;
     private int destPoint = 0;
@@ -21,9 +21,7 @@ public class CharlieController : MonoBehaviour
     public float chasingSpeed;
     private Transform player;
     private NavMeshAgent navMeshAgent;
-    private Rigidbody rb;
     private Graph2 g;
-    private bool up = true;
     private string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     // Yizhi 11/10/2019
@@ -33,7 +31,6 @@ public class CharlieController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //rb = GetComponent<Rigidbody>();
         currentState = States.ToKitchen;
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.autoBraking = false;
@@ -97,67 +94,8 @@ public class CharlieController : MonoBehaviour
         secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
     }
 
-    void MoveVertical()
-    {
-        
-
-        /*Vector3 temp = transform.position;
-        //navMeshAgent.updatePosition = false;
-        if (up == true)
-        {
-            temp.y += 0.005f;
-            transform.position = temp;
-            //navMeshAgent.transform.position = temp;
-            //navMeshAgent.Move(temp);
-            //navMeshAgent.Move(temp);
-            //navMeshAgent.SetDestination(temp);
-            if (transform.position.y >= 7f)
-            {
-                up = false;
-            }
-        }
-        if (up == false)
-        {
-            temp.y -= 0.005f;
-            //navMeshAgent.Move(temp);
-            transform.position = temp;
-            if (transform.position.y <= 6.5f)
-            {
-                up = true;
-            }
-        }
-        navMeshAgent.updatePosition = true;*/
-    }
-
-    private void PrintPath(List<char> shortest_path)
-    {
-        if (shortest_path == null)
-        {
-            print("No Path found!");
-        }
-        else
-        {
-            shortest_path.Reverse();
-
-            string p = "New Path: ";// "F";
-            for (int i = 0; i < shortest_path.Count; i++)
-            {
-                p += shortest_path[i];
-
-            }
-            print(p);
-        }
-    }
-
-    private float findDistance(Transform a, Transform b)
-    {
-        return Vector3.Distance(a.position, b.position);
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        MoveVertical();
         FSM();
 
         // Yizhi 11/10/2019
@@ -169,17 +107,28 @@ public class CharlieController : MonoBehaviour
         }
     }
 
-    // Yizhi 11/10/2019
-    IEnumerator Stop()
+    void FSM()
     {
-        Debug.Log("Stopping");
-        navMeshAgent.speed = 0;
-        transform.GetChild(0).gameObject.SetActive(true);
-        Destroy(secondaryPlayer.gameObject);
-        GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(5);
-        transform.GetChild(0).gameObject.SetActive(false);
-        navMeshAgent.speed = speed;
+        switch (currentState)
+        {
+            case States.ToKitchen:
+                ToKitchen();
+                break;
+            case States.Patrol:
+                Patrol();
+                break;
+            case States.Chase:
+                Chase();
+                break;
+            case States.Attack:
+                Attack();
+                break;
+        }
+    }
+
+    private void ChangeState(States toState)
+    {
+        currentState = toState;
     }
 
     void ToKitchen()
@@ -197,88 +146,62 @@ public class CharlieController : MonoBehaviour
     void Patrol()
     {
         navMeshAgent.speed = speed;
-        int i = Random.Range(1, 4);
 
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
-            if (destPoint < points.Length) {
-                if (i == 1)
-                {
-                    ChangeState(States.Wait);
-                }
-                else
-                {
-                    GotoNextPoint();
-                }
-            }
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+            if (destPoint < points.Length)
+                GotoNextPoint();
             else
-            {
                 MakeNewPath();
-            }
-        }
 
         float d2P = Vector3.Distance(transform.position, player.position);
-        if (d2P < chaseDistance)
+        Vector3 myPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        Vector3 targetDir = player.position - transform.position;
+        float angleToPlayer = Vector3.Angle(targetDir, transform.forward);
+        RaycastHit hitInfo;
+        Physics.Raycast(myPosition, targetDir, out hitInfo, chaseDistance);
+
+        if (d2P < chaseDistance && hitInfo.collider.gameObject.tag == "Player" && angleToPlayer >= -60 && angleToPlayer <= 60)
             ChangeState(States.Chase);
-    }
-
-    IEnumerator Wait()
-    {
-        Debug.Log("Waiting");
-        navMeshAgent.speed = 0;
-        //LookAround();
-        yield return new WaitForSeconds(Random.Range(4, 15));
-        navMeshAgent.speed = speed;
-        ChangeState(States.Patrol);
-    }
-
-    private void LookAround()
-    {
-        Vector3 randomDirection = new Vector3(0, Random.value, 0);
-        navMeshAgent.transform.Rotate(randomDirection);
-    }
-
-    private void ChangeState(States toState)
-    {
-        currentState = toState;
     }
 
     void Chase()
     {
+        Vector3 myPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        RaycastHit hitInfo;
+        Vector3 targetDir = player.position - transform.position;
+        float angleToPlayer = Vector3.Angle(targetDir, transform.forward);
         float d2P = Vector3.Distance(transform.position, player.position);
+        Physics.Raycast(myPosition, targetDir, out hitInfo, chaseDistance);
         navMeshAgent.speed = chasingSpeed;
         navMeshAgent.SetDestination(player.transform.position);
         if (d2P <= attackDistance)
             ChangeState(States.Attack);
-        else if (d2P > chaseDistance)
+        else if (d2P >= chaseDistance || hitInfo.collider.gameObject.tag != "Player" || angleToPlayer <= -60 || angleToPlayer >= 60)
             ChangeState(States.Patrol);
     }
 
     void Attack()
     {
-          Destroy(player.gameObject);//causes camera to be destroyed
-          SceneManager.LoadScene("DeathScene");
+        Destroy(player.gameObject);//causes camera to be destroyed
+        SceneManager.LoadScene("DeathScene");
     }
 
-    void FSM()
+    // Yizhi 11/10/2019
+    IEnumerator Stop()
     {
-        switch (currentState)
-        {
-            case States.ToKitchen:
-                ToKitchen();
-                break;
-            case States.Patrol:
-                Patrol();
-                break;
-            case States.Wait:
-                StartCoroutine(Wait());
-                break;
-            case States.Chase:
-                Chase();
-                break;
-            case States.Attack:
-                Attack();
-                break;
-        }
+        Debug.Log("Stopping");
+        navMeshAgent.speed = 0;
+        transform.GetChild(0).gameObject.SetActive(true);
+        Destroy(secondaryPlayer.gameObject);
+        GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        transform.GetChild(0).gameObject.SetActive(false);
+        navMeshAgent.speed = speed;
+    }
+
+    private float findDistance(Transform a, Transform b)
+    {
+        return Vector3.Distance(a.position, b.position);
     }
 
     void GotoNextPoint()
@@ -290,7 +213,6 @@ public class CharlieController : MonoBehaviour
 
     void MakeNewPath()
     {
-        ClearConsole();
         Debug.Log("Making New Path");
         destPoint = 0;
 
@@ -298,17 +220,8 @@ public class CharlieController : MonoBehaviour
         char f = chars[Random.Range(0, chars.Length)];
 
         List<char> shortest_path = g.shortest_path_via_AStar_algo(s, f);
-        PrintPath(shortest_path);
         points = new Transform[shortest_path.Count];
         for (int x = 0; x < shortest_path.Count; x++)
             points[x] = GameObject.Find(shortest_path[x].ToString()).transform;
-    }
-
-    public static void ClearConsole()
-    {
-        var assembly = Assembly.GetAssembly(typeof(SceneView));
-        var type = assembly.GetType("UnityEditor.LogEntries");
-        var method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
     }
 }

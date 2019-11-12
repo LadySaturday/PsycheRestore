@@ -72,10 +72,7 @@ public class PlayerController : MonoBehaviour
             }
           
         }
-
-        Debug.Log(movementSpeed);
-        
-
+       
     }
 
     void ProcessJumping()
