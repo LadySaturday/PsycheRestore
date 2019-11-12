@@ -40,7 +40,6 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
 
-
         /*
         Scene level1 = SceneManager.GetSceneByName("Level1");
         Scene level2 = SceneManager.GetSceneByName("Level2");
@@ -67,6 +66,7 @@ public class MenuController : MonoBehaviour
     {
         soundIsOn = !soundIsOn;
         Debug.Log("soundsIsOn: " + soundOnOff.isOn);
+        UpdateUI();
     }
 
     public void TOGGLE_MUSIC(bool musicON)
