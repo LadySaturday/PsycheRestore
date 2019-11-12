@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class PlayerController : MonoBehaviour
 {
     // Updated 2019-11-06 //
-    public float movementSpeed=1;
+    public float movementSpeed = 1;
     public float runSpeed=5;
     public float walkSpeed = 1;
     bool isOnGround;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
           
         }
 
-        
+        Debug.Log(movementSpeed);
         
 
     }
