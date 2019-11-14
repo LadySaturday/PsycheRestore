@@ -12,6 +12,7 @@ TagManager:
   - Powerup
   - SecondaryPlayer
   - Canvas
+  - BearImage
   layers:
   - Default
   - TransparentFX

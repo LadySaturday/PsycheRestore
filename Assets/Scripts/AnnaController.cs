@@ -14,6 +14,7 @@ public class AnnaController : MonoBehaviour
     public float chasingSpeed;
     public bool playerHasToy = false;
     public int toysLeft;
+    public GameObject bearImage;
 
 
 
@@ -31,6 +32,15 @@ public class AnnaController : MonoBehaviour
     void Update()
     {
         FSM();
+
+        if (playerHasToy)
+        {
+            bearImage.SetActive(true);
+        }
+        else
+        {
+            bearImage.SetActive(false);
+        }
     }
 
     void FSM()
