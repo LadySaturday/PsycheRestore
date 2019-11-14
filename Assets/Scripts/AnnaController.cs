@@ -14,11 +14,17 @@ public class AnnaController : MonoBehaviour
     public float chasingSpeed;
     public bool playerHasToy = false;
     public int toysLeft;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
         StartCoroutine("Counter");
+
+       
     }
 
     // Update is called once per frame
@@ -86,6 +92,7 @@ public class AnnaController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+      
         if (collider.tag == "Player" && playerHasToy == true)
         {
             playerHasToy = false;
