@@ -8,6 +8,7 @@ public class AnnaController : MonoBehaviour
     public enum States { Idle, Chase, Attack };
     States currentState = States.Idle;
     private int counterValue = 0;
+    public int countDownDisplay;
     public int totalTime;
     private Transform player;
     public float attackDistance;
@@ -22,7 +23,7 @@ public class AnnaController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        countDownDisplay = totalTime;
         StartCoroutine("Counter");
 
        
@@ -92,6 +93,7 @@ public class AnnaController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         counterValue++;
+        countDownDisplay--; 
         StartCoroutine("Counter");
     }
 
@@ -103,14 +105,19 @@ public class AnnaController : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
       
-        if (collider.tag == "Player" && playerHasToy == true)
+        if (collider.tag == "Player" && playerHasToy)
         {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Thank...", "Thank you" });
             playerHasToy = false;
             toysLeft--;
             if (toysLeft == 0)
             {
                 Destroy(gameObject);
             }
+        }
+        else if (collider.tag == "Player" && playerHasToy == false)
+        {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string []{ "I want...","I want my bear"});
         }
     }
 }

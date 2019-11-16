@@ -11,9 +11,11 @@ public class DialogManager : MonoBehaviour
     public float typingSpeed;
     public GameObject dialogPanel;
     public float waitTime = 4;
+    public Font font;
 
     public void ShowDialog(string[] sentences)
     {
+        
         Reset();
         this.sentences = sentences;
         dialogPanel.SetActive(true);

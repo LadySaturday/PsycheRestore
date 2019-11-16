@@ -7,8 +7,10 @@ public class DialogTrigger : MonoBehaviour
 {
     public string[] sentences;
 
+
     void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
         {
             GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(sentences);
