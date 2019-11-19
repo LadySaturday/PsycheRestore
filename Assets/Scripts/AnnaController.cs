@@ -107,7 +107,7 @@ public class AnnaController : MonoBehaviour
       
         if (collider.tag == "Player" && playerHasToy)
         {
-            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Thank...", "Thank you" });
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Thank you" });
             playerHasToy = false;
             toysLeft--;
             if (toysLeft == 0)
