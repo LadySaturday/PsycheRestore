@@ -24128,6 +24128,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 576573272, guid: 8751263b9c6c1e049b543fd41f5d338c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 2854724842244763768, guid: 8751263b9c6c1e049b543fd41f5d338c,
         type: 3}
       propertyPath: m_ApplyRootMotion
