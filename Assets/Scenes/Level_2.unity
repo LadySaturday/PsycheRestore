@@ -50943,7 +50943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownDisplay: 0
-  totalTime: 45
+  totalTime: 170
   attackDistance: 1
   chasingSpeed: 4
   playerHasToy: 0
