@@ -50943,9 +50943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownDisplay: 0
-  totalTime: 170
+  totalTime: 45
   attackDistance: 1
-  chasingSpeed: 5
+  chasingSpeed: 4
   playerHasToy: 0
   toysLeft: 7
   bearImage: {fileID: 867754588}

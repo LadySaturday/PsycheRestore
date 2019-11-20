@@ -76,6 +76,10 @@ public class AnnaController : MonoBehaviour
         {
             ChangeState(States.Attack);
         }
+        if (d2P <= 10)
+        {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "BEAR!!!!" });
+        }
         Vector3 dir2P = player.position - transform.position;
         float dS = chasingSpeed * Time.deltaTime;
         Vector3 newPos = transform.position + dir2P.normalized * dS;
@@ -94,6 +98,14 @@ public class AnnaController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         counterValue++;
         countDownDisplay--; 
+        if (countDownDisplay == 30)
+        {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Hurry Up. I WANT my bear..." });
+        }
+        if (countDownDisplay == 0)
+        {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Ready or not, here I come!" });
+        }
         StartCoroutine("Counter");
     }
 
