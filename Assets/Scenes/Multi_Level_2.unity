@@ -84655,11 +84655,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownDisplay: 0
-  totalTime: 10
+  totalTime: 170
   attackDistance: 1
   chasingSpeed: 4
-  playerHasToy: 0
-  toysLeft: 1
+  playerHasToy: 1
+  toysLeft: 7
   bearImage: {fileID: 867754588}
 --- !u!65 &8296172669108897159
 BoxCollider:
