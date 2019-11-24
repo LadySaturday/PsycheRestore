@@ -17,6 +17,10 @@ public class AnnaController : MonoBehaviour
     public int toysLeft;
     public GameObject bearImage;
 
+    // Yizhi 11/24/2019
+    Transform secondaryPlayer;
+    float stopDistance = 2;
+    float speed = 0;
 
 
     // Start is called before the first frame update
@@ -26,7 +30,8 @@ public class AnnaController : MonoBehaviour
         countDownDisplay = totalTime;
         StartCoroutine("Counter");
 
-       
+        // Yizhi 11/24/2019
+        secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
     }
 
     // Update is called once per frame
@@ -84,6 +89,14 @@ public class AnnaController : MonoBehaviour
         float dS = chasingSpeed * Time.deltaTime;
         Vector3 newPos = transform.position + dir2P.normalized * dS;
         transform.position = newPos;
+
+        // Yizhi 11/24/2019
+        float d2S = Vector3.Distance(transform.position, secondaryPlayer.position);
+        if (d2S <= stopDistance)
+        {
+            Debug.Log("d2S <= stopDistance");
+            StartCoroutine(Stop());
+        }
     }
 
     void Attack()
@@ -91,6 +104,26 @@ public class AnnaController : MonoBehaviour
         Debug.Log("Attacking");
         Destroy(player.gameObject);
         SceneManager.LoadScene("DeathScene");
+    }
+
+    // Yizhi 11/10/2019
+    IEnumerator Stop()
+    {
+        Debug.Log("Stopping");
+        speed = chasingSpeed;
+        chasingSpeed = 0;
+        Light light = GetComponent<Light>();
+        light.color = Color.cyan;
+        countDownDisplay += 10;
+
+        Destroy(secondaryPlayer.gameObject);
+        GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(10);
+
+        light.color = Color.red;
+        chasingSpeed = speed;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     IEnumerator Counter()
