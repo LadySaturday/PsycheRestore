@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class CharlieController : MonoBehaviour
 {
     public enum States { ToKitchen, Patrol, Chase, Attack };
+    public AudioClip chaseMusic;
+    public AudioClip patrolMusic;
     public Transform[] nodes;
     private Transform[] points;
     private int destPoint = 0;
@@ -129,6 +131,20 @@ public class CharlieController : MonoBehaviour
     private void ChangeState(States toState)
     {
         currentState = toState;
+        
+        if (toState == States.Chase)
+        {
+            player.GetComponentInChildren<AudioSource>().Pause();
+            player.GetComponentInChildren<AudioSource>().clip = chaseMusic;
+            player.GetComponentInChildren<AudioSource>().Play();
+        }
+        if (toState == States.Patrol)
+        {
+            player.GetComponentInChildren<AudioSource>().Pause();
+            player.GetComponentInChildren<AudioSource>().clip = patrolMusic;
+            player.GetComponentInChildren<AudioSource>().Play();
+        }
+        
     }
 
     void ToKitchen()
@@ -162,6 +178,8 @@ public class CharlieController : MonoBehaviour
 
         if (d2P < chaseDistance && hitInfo.collider.gameObject.tag == "Player" && angleToPlayer >= -60 && angleToPlayer <= 60)
             ChangeState(States.Chase);
+        else if (d2P <= attackDistance)
+            ChangeState(States.Attack);
     }
 
     void Chase()

@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Multi_Level_1.unity
     guid: 0bb1ceb6e96e2fc4d8d6aa4cce64726a
   - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: 84fce3bb5b9217e41818a33af21e9553
+  - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 42c6c6e52f44f0c41b67e9547700cec2
   - enabled: 1

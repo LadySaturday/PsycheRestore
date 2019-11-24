@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &517664083
 Transform:
   m_ObjectHideFlags: 0
@@ -2121,6 +2121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa662479132c1e9448f60b963d9b5fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseMusic: {fileID: 8300000, guid: ecb09901c41e11e4795ab45de182a042, type: 3}
+  patrolMusic: {fileID: 8300000, guid: 925df08023f872a40a38f9ae54be06af, type: 3}
   nodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -2153,7 +2155,7 @@ MonoBehaviour:
   hand: {fileID: 969451471885769666}
   chaseDistance: 10
   attackDistance: 1
-  chasingSpeed: 6
+  chasingSpeed: 5.2
 --- !u!195 &301176781838373739
 NavMeshAgent:
   m_ObjectHideFlags: 0
