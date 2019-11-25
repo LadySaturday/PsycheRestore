@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIController : MonoBehaviour
+public class UIControllerMulti1 : MonoBehaviour
 {
     public GameObject imagePanel;
     public GameObject itemsCollected;
@@ -22,11 +22,11 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (numOfItemsCollected == 7)
+        if (numOfItemsCollected == 1)
         {
             Debug.Log("Next Level");
             Destroy(GameObject.Find("Charlie"));
-            SceneManager.LoadScene("WinScene");
+            SceneManager.LoadScene("WinSceneMulti1");
         }
         if (collectibleImage.texture != null)
         {

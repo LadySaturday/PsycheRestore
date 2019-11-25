@@ -64225,6 +64225,16 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 895849164124614199, guid: 21f55326382afb1478fad9e28544f85f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 895849162715109031, guid: 21f55326382afb1478fad9e28544f85f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 895849162715109028, guid: 21f55326382afb1478fad9e28544f85f,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -64250,6 +64260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 963194225, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 895849162715109029, guid: 21f55326382afb1478fad9e28544f85f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -64269,20 +64283,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 895849164124614199, guid: 21f55326382afb1478fad9e28544f85f,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 963194225, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 895849162715109031, guid: 21f55326382afb1478fad9e28544f85f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
@@ -77082,7 +77082,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583732737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e621f6075cfd2b6409262bf412c9c0d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 10427dbfadde05848a7dec7e5be3c86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imagePanel: {fileID: 104867893}

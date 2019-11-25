@@ -33,7 +33,7 @@ public class CollectiblesControllerMulti : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("OnTriggerEnter");
-        UIController.SetImage(image);
+        UIControllerMulti1.SetImage(image);
         Destroy(gameObject);
     }
 }
