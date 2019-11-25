@@ -22,7 +22,7 @@ public class UIControllerMulti1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (numOfItemsCollected == 1)
+        if (numOfItemsCollected == 7)
         {
             Debug.Log("Next Level");
             Destroy(GameObject.Find("Charlie"));
@@ -51,11 +51,11 @@ public class UIControllerMulti1 : MonoBehaviour
     void PauseGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
-        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = false;
+        GameObject.Find("Charlie").GetComponent<CharlieControllerMulti>().enabled = false;
     }
     void ResumeGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
-        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+        GameObject.Find("Charlie").GetComponent<CharlieControllerMulti>().enabled = true;
     }
 }

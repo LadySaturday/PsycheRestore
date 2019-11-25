@@ -21,9 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_2.unity
     guid: 84fce3bb5b9217e41818a33af21e9553
   - enabled: 1
+    path: Assets/Scenes/Multi_Level_2.unity
+    guid: d3afc72c328d9a6449e1e48d90938e1a
+  - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 42c6c6e52f44f0c41b67e9547700cec2
   - enabled: 1
+    path: Assets/Scenes/DeathSceneMulti1.unity
+    guid: 8fcb6a8b57629ba408469091bdd671e8
+  - enabled: 1
+    path: Assets/Scenes/DeathSceneMulti2.unity
+    guid: f30619664e1583848a3a26086dcf913a
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: e998c6d101cc0a347bbbe1be1436df49
+  - enabled: 1
+    path: Assets/Scenes/WinSceneMulti1.unity
+    guid: 5750d804f3f1ea24dbcc738e289a0926
   m_configObjects: {}

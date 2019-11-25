@@ -80887,53 +80887,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1781099367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172667407839850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa662479132c1e9448f60b963d9b5fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseMusic: {fileID: 8300000, guid: ecb09901c41e11e4795ab45de182a042, type: 3}
-  patrolMusic: {fileID: 8300000, guid: 925df08023f872a40a38f9ae54be06af, type: 3}
-  nodes:
-  - {fileID: 1238933714}
-  - {fileID: 1871180577}
-  - {fileID: 2078851706}
-  - {fileID: 1248506713}
-  - {fileID: 1676409689}
-  - {fileID: 1532835104}
-  - {fileID: 439283204}
-  - {fileID: 1646792421}
-  - {fileID: 326245671}
-  - {fileID: 1917939951}
-  - {fileID: 316653623}
-  - {fileID: 485117381}
-  - {fileID: 813348352}
-  - {fileID: 1701188731}
-  - {fileID: 320429842}
-  - {fileID: 484128571}
-  - {fileID: 1480942824}
-  - {fileID: 18189126}
-  - {fileID: 1124476921}
-  - {fileID: 967407514}
-  - {fileID: 1144170751}
-  - {fileID: 699494708}
-  - {fileID: 36859642}
-  - {fileID: 1591648022}
-  - {fileID: 1238325308}
-  - {fileID: 1886592678}
-  knife: {fileID: 73574008}
-  speed: 3
-  hand: {fileID: 673798685485704143}
-  chaseDistance: 10
-  attackDistance: 1
-  chasingSpeed: 5.2
 --- !u!1001 &1784080500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95710,9 +95663,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5006512736586219641}
   - component: {fileID: 3166231814262254851}
-  - component: {fileID: 1781099367}
   - component: {fileID: 1781099366}
   - component: {fileID: 8578253078042315366}
+  - component: {fileID: 8296172667407839851}
   m_Layer: 0
   m_Name: Charlie
   m_TagString: Untagged
@@ -95720,6 +95673,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8296172667407839851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172667407839850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a92bd13f91e5541ab8058afbebbe56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseMusic: {fileID: 8300000, guid: ecb09901c41e11e4795ab45de182a042, type: 3}
+  patrolMusic: {fileID: 8300000, guid: 925df08023f872a40a38f9ae54be06af, type: 3}
+  nodes:
+  - {fileID: 1238933714}
+  - {fileID: 1871180577}
+  - {fileID: 2078851706}
+  - {fileID: 1248506713}
+  - {fileID: 1676409689}
+  - {fileID: 1532835104}
+  - {fileID: 439283204}
+  - {fileID: 1646792421}
+  - {fileID: 326245671}
+  - {fileID: 1917939951}
+  - {fileID: 316653623}
+  - {fileID: 485117381}
+  - {fileID: 813348352}
+  - {fileID: 1701188731}
+  - {fileID: 320429842}
+  - {fileID: 484128571}
+  - {fileID: 1480942824}
+  - {fileID: 18189126}
+  - {fileID: 1124476921}
+  - {fileID: 967407514}
+  - {fileID: 1144170751}
+  - {fileID: 699494708}
+  - {fileID: 36859642}
+  - {fileID: 1591648022}
+  - {fileID: 1238325308}
+  - {fileID: 1886592678}
+  knife: {fileID: 73574008}
+  speed: 3
+  hand: {fileID: 673798685485704143}
+  chaseDistance: 10
+  attackDistance: 1
+  chasingSpeed: 5.2
 --- !u!1 &8296172667581628570
 GameObject:
   m_ObjectHideFlags: 0
