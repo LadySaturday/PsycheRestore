@@ -84658,7 +84658,7 @@ MonoBehaviour:
   totalTime: 170
   attackDistance: 1
   chasingSpeed: 4
-  playerHasToy: 1
+  playerHasToy: 0
   toysLeft: 7
   bearImage: {fileID: 867754588}
 --- !u!65 &8296172669108897159
