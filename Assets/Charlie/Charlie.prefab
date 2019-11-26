@@ -2100,7 +2100,7 @@ Animator:
   m_GameObject: {fileID: 8578253078042315367}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0766e37186007ec468815945b12bf6a1, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4444ad1783c019408745db6ed703eec, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2175,7 +2175,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &8296172667407839851

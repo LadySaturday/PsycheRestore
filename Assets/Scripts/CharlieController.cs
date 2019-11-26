@@ -161,6 +161,7 @@ public class CharlieController : MonoBehaviour
 
     void Patrol()
     {
+        GetComponent<Animator>().SetBool("isChasing", false);
         navMeshAgent.speed = speed;
 
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
@@ -184,6 +185,7 @@ public class CharlieController : MonoBehaviour
 
     void Chase()
     {
+        GetComponent<Animator>().SetBool("isChasing", true);
         Vector3 myPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         RaycastHit hitInfo;
         Vector3 targetDir = player.position - transform.position;

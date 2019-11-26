@@ -7,13 +7,13 @@ public class AnnaController : MonoBehaviour
 {
     public enum States { Idle, Chase, Attack };
     States currentState = States.Idle;
-    private int counterValue = 0;
+    private int counterValue;
     public int countDownDisplay;
     public int totalTime;
     private Transform player;
     public float attackDistance;
     public float chasingSpeed;
-    public bool playerHasToy = false;
+    public bool playerHasToy;
     public int toysLeft;
     public GameObject bearImage;
 
@@ -26,6 +26,8 @@ public class AnnaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerHasToy = false;
+        counterValue = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         countDownDisplay = totalTime;
         StartCoroutine("Counter");
@@ -67,6 +69,7 @@ public class AnnaController : MonoBehaviour
 
     void Idle()
     {
+        //GetComponent<Animator>().SetBool("isChasing", false);
         if (counterValue == totalTime)
         {
             ChangeState(States.Chase);
@@ -76,6 +79,7 @@ public class AnnaController : MonoBehaviour
     void Chase()
     {
         Debug.Log("Chasing");
+        GetComponent<Animator>().SetBool("isChasing", true);
         float d2P = Vector3.Distance(transform.position, player.position);
         if (d2P <= attackDistance)
         {
