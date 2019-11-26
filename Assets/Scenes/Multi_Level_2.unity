@@ -32229,9 +32229,9 @@ GameObject:
   - component: {fileID: 623134944}
   - component: {fileID: 623134943}
   - component: {fileID: 623134942}
-  - component: {fileID: 623134947}
   - component: {fileID: 623134946}
   - component: {fileID: 623134941}
+  - component: {fileID: 623134947}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -32376,7 +32376,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 623134940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dded674034b1f014992a23325bb4ea0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ded8e804888c184aa5863b79ed8db05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1566874524}
@@ -84631,10 +84631,10 @@ GameObject:
   - component: {fileID: 5006512734882019222}
   - component: {fileID: 3166231813765470956}
   - component: {fileID: 1465883015}
-  - component: {fileID: 8296172669108897158}
   - component: {fileID: 1465883014}
   - component: {fileID: 8296172669108897159}
   - component: {fileID: 8296172669108897160}
+  - component: {fileID: 8296172669108897158}
   m_Layer: 0
   m_Name: Anna@tpose
   m_TagString: Untagged
@@ -84651,11 +84651,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8296172669108897157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4000e8ac575f9444da92068c664061d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 601a489509ffc1247bd6592cec6c9957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   countDownDisplay: 0
-  totalTime: 170
+  totalTime: 10
   attackDistance: 1
   chasingSpeed: 4
   playerHasToy: 0

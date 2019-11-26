@@ -35,10 +35,10 @@ public class ToyControllerMulti : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (GameObject.Find("Anna@tpose").GetComponent<AnnaController>().playerHasToy == false)
+        if (GameObject.Find("Anna@tpose").GetComponent<AnnaControllerMulti>().playerHasToy == false)
         {
             Destroy(gameObject);
-            GameObject.Find("Anna@tpose").GetComponent<AnnaController>().playerHasToy = true;
+            GameObject.Find("Anna@tpose").GetComponent<AnnaControllerMulti>().playerHasToy = true;
             count++;
             dollCount.text = (count.ToString() + "/7");
 
