@@ -158,6 +158,7 @@ public class AnnaControllerMulti : MonoBehaviour
             if (toysLeft == 0)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene("WinSceneMulti2");
             }
         }
         else if (collider.tag == "Player" && playerHasToy == false)

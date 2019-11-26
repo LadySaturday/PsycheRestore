@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/WinScene.unity
     guid: e998c6d101cc0a347bbbe1be1436df49
   - enabled: 1
+    path: Assets/Scenes/WinScene2.unity
+    guid: b90dcf8f9b13d694b87f15fd6e5d3122
+  - enabled: 1
     path: Assets/Scenes/WinSceneMulti1.unity
     guid: 5750d804f3f1ea24dbcc738e289a0926
+  - enabled: 1
+    path: Assets/Scenes/WinSceneMulti2.unity
+    guid: 7b80334393bc5e949a50605a7afbc6d1
   m_configObjects: {}

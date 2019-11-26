@@ -121,6 +121,7 @@ public class AnnaController : MonoBehaviour
             if (toysLeft == 0)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene("WinScene2");
             }
         }
         else if (collider.tag == "Player" && playerHasToy == false)
