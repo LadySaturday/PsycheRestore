@@ -21,7 +21,15 @@ public class TimerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = anna.countDownDisplay.ToString();
+        if (anna.countDownDisplay >= 0)
+        {
+            timerText.text = anna.countDownDisplay.ToString();
+        }
+        else
+        {
+            timerText.text = ("RUN");
+        }
+        
         
     }
 }
