@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour
     private bool soundIsOn = false;
     private bool musicIsOn = false;
     private float soundVolume = 0;
+    public static string chosenLevelType;
 
     public Toggle soundOnOff;
     public Toggle musicOnOff;
@@ -34,6 +35,19 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
+
+    public void SinglePlayer()
+    {
+        chosenLevelType = "singleplayer";
+        SceneManager.LoadScene("Level_1_Story");
+    }
+
+    public void MultiPlayer()
+    {
+        chosenLevelType = "multiplayer";
+        SceneManager.LoadScene("Level_1_Story");
+    }
+
 
     // Reset scene
     public void REVIVE(string levelName)

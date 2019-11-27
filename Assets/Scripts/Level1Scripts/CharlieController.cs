@@ -146,6 +146,7 @@ public class CharlieController : MonoBehaviour
 
     void Patrol()
     {
+        Debug.Log("Patrol");
         navMeshAgent.speed = speed;
 
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
@@ -165,6 +166,14 @@ public class CharlieController : MonoBehaviour
             ChangeState(States.Chase);
         else if (d2P <= attackDistance)
             ChangeState(States.Attack);
+        else if (Input.GetKeyDown(KeyCode.RightShift))
+            InvestigateNoise();
+    }
+
+    void InvestigateNoise()
+    {
+        Debug.Log("Investigate");
+        navMeshAgent.SetDestination(player.transform.position);
     }
 
     void Chase()

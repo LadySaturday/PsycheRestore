@@ -181,6 +181,14 @@ public class CharlieControllerMulti : MonoBehaviour
             ChangeState(States.Chase);
         else if (d2P <= attackDistance)
             ChangeState(States.Attack);
+        else if (Input.GetKeyDown(KeyCode.RightShift))
+            InvestigateNoise();
+    }
+
+    void InvestigateNoise()
+    {
+        Debug.Log("Investigate");
+        navMeshAgent.SetDestination(player.transform.position);
     }
 
     void Chase()

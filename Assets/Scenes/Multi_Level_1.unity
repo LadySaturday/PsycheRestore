@@ -95717,7 +95717,7 @@ MonoBehaviour:
   knife: {fileID: 73574008}
   speed: 3
   hand: {fileID: 673798685485704143}
-  chaseDistance: 10
+  chaseDistance: 15
   attackDistance: 1
   chasingSpeed: 5.2
 --- !u!1 &8296172667581628570
