@@ -51,11 +51,11 @@ public class UIControllerLv1 : MonoBehaviour
     void PauseGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
-        //GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = false;
+        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = false;
     }
     void ResumeGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
-        //GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
     }
 }
