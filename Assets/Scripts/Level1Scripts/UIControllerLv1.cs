@@ -15,6 +15,7 @@ public class UIControllerLv1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numOfItemsCollected = 0;
         collectibleImage = imagePanel.GetComponentInChildren<RawImage>();
         itemsCollectedText = itemsCollected.GetComponentInChildren<Text>();
     }

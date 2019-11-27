@@ -9,6 +9,8 @@ public class Level1Story : MonoBehaviour
 {
     public TextMeshProUGUI[] texts;
     private int index = 0;
+    public Button cntBtn;
+    private bool startCalled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,27 +20,32 @@ public class Level1Story : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (index == texts.Length - 1 && startCalled == false)
+        {
+            startCalled = true;
+            cntBtn.gameObject.SetActive(false);
+            StartCoroutine(StartLevel());
+        }
+    }
+
+    IEnumerator StartLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(FadeTextToZeroAlpha(1f, texts[index]));
+        yield return new WaitForSeconds(1f);
+        if (MenuController.type.ToString().Equals("Singleplayer"))
+        {
+            SceneManager.LoadScene("Level_1");
+        }
+        else if (MenuController.type.ToString().Equals("Multiplayer"))
+        {
+            SceneManager.LoadScene("Multi_Level_1");
+        }
     }
 
     public void Continue()
     {
-        if (index == texts.Length - 1)
-        {
-            StartCoroutine(FadeTextToZeroAlpha(1f, texts[index]));
-            if (MenuController.type.ToString().Equals("Singleplayer"))
-            {
-                SceneManager.LoadScene("Level_1");
-            }
-            else if (MenuController.type.ToString().Equals("Multiplayer"))
-            {
-                SceneManager.LoadScene("Multi_Level_1");
-            }
-        }
-        else
-        {
-            StartCoroutine(Transition());
-        }
+        StartCoroutine(Transition());
     }
 
     public IEnumerator Transition()
