@@ -93,7 +93,7 @@ public class CharlieController : MonoBehaviour
         g.add_vertex_AStar('Z', nodes[25].transform.position, new Dictionary<char, float>() { { 'U', findDistance(nodes[25], nodes[20]) }, { 'T', findDistance(nodes[25], nodes[19]) }, { 'Y', findDistance(nodes[25], nodes[24]) } });
 
         // Yizhi 11/10/2019
-        if (MenuController.chosenLevelType == "multiplayer")
+        if (MenuController.type.ToString().Equals("Multiplayer"))
             secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
     }
 
@@ -102,7 +102,7 @@ public class CharlieController : MonoBehaviour
         FSM();
 
         // Yizhi 11/10/2019
-        if (MenuController.chosenLevelType == "multiplayer")
+        if (MenuController.type.ToString().Equals("Multiplayer"))
         {
             float d2P = Vector3.Distance(transform.position, secondaryPlayer.position);
             if (d2P <= stopDistance)

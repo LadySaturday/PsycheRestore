@@ -26,12 +26,11 @@ public class Level1Story : MonoBehaviour
         if (index == texts.Length - 1)
         {
             StartCoroutine(FadeTextToZeroAlpha(1f, texts[index]));
-            string chosenLevelType = MenuController.chosenLevelType;
-            if (chosenLevelType == "singleplayer")
+            if (MenuController.type.ToString().Equals("Singleplayer"))
             {
                 SceneManager.LoadScene("Level_1");
             }
-            else if (chosenLevelType == "multiplayer")
+            else if (MenuController.type.ToString().Equals("Multiplayer"))
             {
                 SceneManager.LoadScene("Multi_Level_1");
             }

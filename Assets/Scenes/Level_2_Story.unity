@@ -879,7 +879,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "2 years later, her dad died because of alcohol poisoning. Julie\u2019s
     mom became prissy and started controlling Julie\u2019s decisions and behaviors.
-    So, Anna was created. "
+    So, Anna was created. Anna is a projection of Julie's mother."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c40fbabf98a10a44093721e472bbd6d0, type: 2}
   m_sharedMaterial: {fileID: -9160312493988430508, guid: c40fbabf98a10a44093721e472bbd6d0,
@@ -949,12 +949,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1997932775}
-    characterCount: 163
+    characterCount: 202
     spriteCount: 0
-    spaceCount: 27
-    wordCount: 27
+    spaceCount: 33
+    wordCount: 34
     linkCount: 0
-    lineCount: 4
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
