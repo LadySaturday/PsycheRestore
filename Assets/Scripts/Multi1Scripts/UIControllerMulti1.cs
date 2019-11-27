@@ -51,11 +51,11 @@ public class UIControllerMulti1 : MonoBehaviour
     void PauseGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
-        GameObject.Find("Charlie").GetComponent<CharlieControllerMulti>().enabled = false;
+        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = false;
     }
     void ResumeGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
-        GameObject.Find("Charlie").GetComponent<CharlieControllerMulti>().enabled = true;
+        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
     }
 }
