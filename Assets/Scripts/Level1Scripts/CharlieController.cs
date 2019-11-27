@@ -227,7 +227,10 @@ public class CharlieController : MonoBehaviour
     void Attack()
     {
         Destroy(player.gameObject);//causes camera to be destroyed
-        SceneManager.LoadScene("DeathScene");
+        if (MenuController.type.ToString().Equals("Multiplayer"))
+            SceneManager.LoadScene("DeathSceneMulti1");
+        else if (MenuController.type.ToString().Equals("Singleplayer"))
+            SceneManager.LoadScene("DeathScene");
     }
 
     private float findDistance(Transform a, Transform b)
