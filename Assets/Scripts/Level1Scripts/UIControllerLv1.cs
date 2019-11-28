@@ -40,6 +40,12 @@ public class UIControllerLv1 : MonoBehaviour
             collectibleImage.texture = null;
             ResumeGame();
         }
+
+        if(GameObject.Find("Canvas/Instruction"))
+        {
+            StartCoroutine(ShowInstruction8Sec());
+        }
+        
     }
 
     public static void SetImage(Texture texture)
@@ -58,5 +64,13 @@ public class UIControllerLv1 : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
         GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+    }
+
+    // Yizhi 11/28/2019
+    IEnumerator ShowInstruction8Sec()
+    {
+        yield return new WaitForSeconds(8);
+        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+        GameObject.Find("Canvas/Instruction").gameObject.SetActive(false);
     }
 }

@@ -248,11 +248,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "BACKSTORY\nAfter Julie\u2019s dad lost his job, he started to drink excessively.
-    He sometimes cannot control himself and thus abused Julie\u2019s mom and Julie
-    herself. Once, he even accidentally killed their dog because of the drinking issue.
-    So, Charlie was created. Charlie is a projection of Julie's father.\n\nJulie's
-    dog returned as a shining dot to help Julie (Multiplayer only)"
+  m_text: "Psychiatrists suggested her parents taking Julie to her old house, facing
+    and collecting all the bad memories to her.\r\n\nThe story starts from this..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c40fbabf98a10a44093721e472bbd6d0, type: 2}
   m_sharedMaterial: {fileID: -9160312493988430508, guid: c40fbabf98a10a44093721e472bbd6d0,
