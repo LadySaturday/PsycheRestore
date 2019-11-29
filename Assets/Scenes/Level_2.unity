@@ -17177,6 +17177,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 963194228, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.764
+      objectReference: {fileID: 0}
     - target: {fileID: 895849162715109031, guid: 21f55326382afb1478fad9e28544f85f,
         type: 3}
       propertyPath: m_IsActive
@@ -17187,10 +17191,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 022cd8e9b1d113b41905bcb401343e62, type: 2}
-    - target: {fileID: 963194228, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.764
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f55326382afb1478fad9e28544f85f, type: 3}
 --- !u!1001 &801022871
@@ -50943,7 +50943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownDisplay: 0
-  totalTime: 25
+  totalTime: 170
   attackDistance: 1
   chasingSpeed: 4
   playerHasToy: 0
