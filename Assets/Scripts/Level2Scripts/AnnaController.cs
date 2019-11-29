@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class AnnaController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class AnnaController : MonoBehaviour
     public bool playerHasToy = false;
     public int toysLeft;
     public GameObject bearImage;
+    private NavMeshAgent navMeshAgent;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class AnnaController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         countDownDisplay = totalTime;
         StartCoroutine("Counter");
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -76,10 +79,11 @@ public class AnnaController : MonoBehaviour
         {
             GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "BEAR!!!!" });
         }
-        Vector3 dir2P = player.position - transform.position;
-        float dS = chasingSpeed * Time.deltaTime;
-        Vector3 newPos = transform.position + dir2P.normalized * dS;
-        transform.position = newPos;
+        //Vector3 dir2P = player.position - transform.position;
+        //float dS = chasingSpeed * Time.deltaTime;
+        //Vector3 newPos = transform.position + dir2P.normalized * dS;
+        //transform.position = newPos;
+        navMeshAgent.SetDestination(player.position);
     }
 
     void Attack()
