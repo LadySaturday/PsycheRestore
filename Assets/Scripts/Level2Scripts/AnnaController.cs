@@ -90,7 +90,10 @@ public class AnnaController : MonoBehaviour
     {
         Debug.Log("Attacking");
         Destroy(player.gameObject);
-        SceneManager.LoadScene("DeathScene2");
+        if (MenuController.type.ToString().Equals("Singleplayer"))
+            SceneManager.LoadScene("DeathScene2");
+        else if (MenuController.type.ToString().Equals("Multiplayer"))
+            SceneManager.LoadScene("DeathSceneMulti2");
     }
 
     IEnumerator Counter()
@@ -125,7 +128,10 @@ public class AnnaController : MonoBehaviour
             if (toysLeft == 0)
             {
                 Destroy(gameObject);
-                SceneManager.LoadScene("WinScene2");
+                if (MenuController.type.ToString().Equals("Singleplayer"))
+                    SceneManager.LoadScene("WinScene2");
+                else if (MenuController.type.ToString().Equals("Multiplayer"))
+                    SceneManager.LoadScene("WinSceneMulti2");
             }
         }
         else if (collider.tag == "Player" && playerHasToy == false)
