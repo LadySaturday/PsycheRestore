@@ -24,11 +24,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Multi_Level_2.unity
     guid: d3afc72c328d9a6449e1e48d90938e1a
   - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 5e08ccb5a87b3844b933b33e51156b2f
+  - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 42c6c6e52f44f0c41b67e9547700cec2
   - enabled: 1
     path: Assets/Scenes/DeathScene2.unity
     guid: 39a979db70850d9478af6baad6c66fd2
+  - enabled: 1
+    path: Assets/Scenes/DeathScene3.unity
+    guid: fa7b83854c41cf04e8b9ad7f7f184a31
   - enabled: 1
     path: Assets/Scenes/DeathSceneMulti1.unity
     guid: 8fcb6a8b57629ba408469091bdd671e8
@@ -36,11 +42,17 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathSceneMulti2.unity
     guid: f30619664e1583848a3a26086dcf913a
   - enabled: 1
+    path: Assets/Scenes/DeathSceneMulti3.unity
+    guid: 1cf474e70956e0e458cb21bf162310ba
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: e998c6d101cc0a347bbbe1be1436df49
   - enabled: 1
     path: Assets/Scenes/WinScene2.unity
     guid: b90dcf8f9b13d694b87f15fd6e5d3122
+  - enabled: 1
+    path: Assets/Scenes/WinScene3.unity
+    guid: ee1b5456bda9bac4195300ec9af53557
   - enabled: 1
     path: Assets/Scenes/WinSceneMulti1.unity
     guid: 5750d804f3f1ea24dbcc738e289a0926
