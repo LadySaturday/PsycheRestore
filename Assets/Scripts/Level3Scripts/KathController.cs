@@ -88,16 +88,11 @@ public class KathController : MonoBehaviour
             GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] {
                 "KATHERINE: I'm sorry Julie. Please don't make this difficult. This is for your own good.",
                 "JULIE: Kath....no."});
+            // Yizhi 11/30/2019
             StartCoroutine(DeathConversation());
         }
         //if (d2P <= 1f)
         //    ChangeState(States.Attack);
-    }
-
-    IEnumerator DeathConversation()
-    {
-        yield return new WaitForSeconds(10);
-        ChangeState(States.Attack);
     }
 
     void Attack()
@@ -128,6 +123,13 @@ public class KathController : MonoBehaviour
         timer.text = startingTime--.ToString();
         if (startingTime >= 0)
             StartCoroutine(Countdown());
+    }
+
+    // Yizhi 11/30/2019
+    IEnumerator DeathConversation()
+    {
+        yield return new WaitForSeconds(10);
+        ChangeState(States.Attack);
     }
 }
 
