@@ -88,9 +88,16 @@ public class KathController : MonoBehaviour
             GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] {
                 "KATHERINE: I'm sorry Julie. Please don't make this difficult. This is for your own good.",
                 "JULIE: Kath....no."});
+            StartCoroutine(DeathConversation());
         }
-        if (d2P <= 1f)
-            ChangeState(States.Attack);
+        //if (d2P <= 1f)
+        //    ChangeState(States.Attack);
+    }
+
+    IEnumerator DeathConversation()
+    {
+        yield return new WaitForSeconds(10);
+        ChangeState(States.Attack);
     }
 
     void Attack()

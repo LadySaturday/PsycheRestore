@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     void ProcessJumping()
     {
         CheckIfOnGround();
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isOnGround)//(Input.GetKeyDown(KeyCode.Space) && isOnGround)//removed until network control implememnted
         {
             transform.Translate(0, 0.75f, 0);
             isOnGround = false;
