@@ -8,6 +8,7 @@ public class UIControllerMulti1 : MonoBehaviour
 {
     public GameObject imagePanel;
     public GameObject itemsCollected;
+    public GameObject InstructionMulti1;
     private static RawImage collectibleImage;
     private static Text itemsCollectedText;
     private static int numOfItemsCollected = 0;
@@ -40,6 +41,11 @@ public class UIControllerMulti1 : MonoBehaviour
             collectibleImage.texture = null;
             ResumeGame();
         }
+
+        if (GameObject.Find("Canvas/InstructionMulti1"))
+        {
+            StartCoroutine(ShowInstruction8Sec());
+        }
     }
 
     public static void SetImage(Texture texture)
@@ -58,5 +64,12 @@ public class UIControllerMulti1 : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
         GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+    }
+
+    // Yizhi 11/30/2019
+    IEnumerator ShowInstruction8Sec()
+    {
+        yield return new WaitForSeconds(8);
+        InstructionMulti1.gameObject.SetActive(false);
     }
 }
