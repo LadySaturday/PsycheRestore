@@ -51,6 +51,18 @@ public class OptionMenuController : MonoBehaviour
             GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
         }
+        else if (sceneName == "Multi_Level_1" && isOMOpen)
+        {
+            GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = false;
+            GameObject.FindGameObjectWithTag("SecondaryPlayer").GetComponent<DotController>().enabled = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
+        }
+        else if (sceneName == "Multi_Level_1" && !isOMOpen)
+        {
+            GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
+            GameObject.FindGameObjectWithTag("SecondaryPlayer").GetComponent<DotController>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        }
     }
 
     public void OpenInstruction()
@@ -91,35 +103,5 @@ public class OptionMenuController : MonoBehaviour
     public void MainManu()
     {
         SceneManager.LoadScene("StartMenu");
-    }
-
-    public void TestGoToLevel1()
-    {
-        SceneManager.LoadScene("Level_1");
-    }
-
-    public void TestGoToLevel2()
-    {
-        SceneManager.LoadScene("Level_2");
-    }
-
-    public void TestGoToLevel3()
-    {
-        SceneManager.LoadScene("Level_3");
-    }
-
-    public void TestGoToMultiLevel1()
-    {
-        SceneManager.LoadScene("Multi_Level_1");
-    }
-
-    public void TestGoToMultiLevel2()
-    {
-        SceneManager.LoadScene("Multi_Level_2");
-    }
-
-    public void TestGoToMultiLevel3()
-    {
-        SceneManager.LoadScene("Multi_Level_3");
     }
 }
