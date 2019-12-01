@@ -15,9 +15,13 @@ public class KathController : MonoBehaviour
     private States currentState;
     private bool saidChaseTaunt = false;
 
+    string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        string sceneName = SceneManager.GetActiveScene().name;
         timer.text = startingTime.ToString();
         StartCoroutine(Countdown());
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -97,18 +101,18 @@ public class KathController : MonoBehaviour
 
     void Attack()
     {
-        if (MenuController.type.ToString().Equals("Singleplayer"))
+        if (sceneName == "Level_3")
             SceneManager.LoadScene("DeathScene3");
-        else if (MenuController.type.ToString().Equals("Multiplayer"))
+        else if (sceneName == "Multi_Level_3")
             SceneManager.LoadScene("DeathSceneMulti3");
     }
 
     IEnumerator Win()
     {
         yield return new WaitForSeconds(20);
-        if (MenuController.type.ToString().Equals("Singleplayer"))
+        if (sceneName == "Level_3")
             SceneManager.LoadScene("WinScene3");
-        else if (MenuController.type.ToString().Equals("Multiplayer"))
+        else if (sceneName == "Multi_Level_3")
             SceneManager.LoadScene("WinSceneMulti3");
     }
 

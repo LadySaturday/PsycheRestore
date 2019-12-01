@@ -15,13 +15,19 @@ public class HazardObject : MonoBehaviour
     static byte g = 255;
     static byte b = 255;
 
+    string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
         // Yizhi 11/30/2019
-        txtExtinguishTimes.text = extinguishTimes.ToString();
-        //if (MenuController.type.ToString().Equals("Multiplayer"))
-        secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
+        sceneName = SceneManager.GetActiveScene().name;
+        
+        if (sceneName == "Multi_Level_3")
+        {
+            txtExtinguishTimes.text = extinguishTimes.ToString();
+            secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
+        }  
     }
 
     // Update is called once per frame
@@ -30,35 +36,37 @@ public class HazardObject : MonoBehaviour
         // Yizhi 11/30/2019
         //if (MenuController.type.ToString().Equals("Multiplayer"))
         //{
-        float d2P = Vector3.Distance(transform.position, secondaryPlayer.position);
-        if (d2P <= extinguishDistance)
+        if(sceneName == "Multi_Level_3")
         {
-            extinguishTimes -= 1;
-            txtExtinguishTimes.text = extinguishTimes.ToString();
-            g -= 25;
-            b -= 25;
-            Debug.Log("g: " + g + " | b: " + b);
-            GameObject.FindGameObjectWithTag("SecondaryPlayer").GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color32(255, g, b, 255));
-            var main = secondaryPlayer.GetChild(0).GetComponent<ParticleSystem>().main;
-            Color c = new Color32(255, g, b, 255);
-            main.startColor = c;
-            if(extinguishTimes == 0)
+            float d2P = Vector3.Distance(transform.position, secondaryPlayer.position);
+            if (d2P <= extinguishDistance)
             {
-                DotDiedMessage.SetActive(true);
-                Destroy(secondaryPlayer.gameObject);
+                extinguishTimes -= 1;
+                txtExtinguishTimes.text = extinguishTimes.ToString();
+                g -= 25;
+                b -= 25;
+                Debug.Log("g: " + g + " | b: " + b);
+                GameObject.FindGameObjectWithTag("SecondaryPlayer").GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color32(255, g, b, 255));
+                var main = secondaryPlayer.GetChild(0).GetComponent<ParticleSystem>().main;
+                Color c = new Color32(255, g, b, 255);
+                main.startColor = c;
+                if (extinguishTimes == 0)
+                {
+                    DotDiedMessage.SetActive(true);
+                    Destroy(secondaryPlayer.gameObject);
+                }
+                gameObject.active = false;
             }
-            gameObject.active = false;
         }
-        //}
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            if (MenuController.type.ToString().Equals("Singleplayer"))
+            if (sceneName == "Level_3")
                 SceneManager.LoadScene("DeathScene3");
-            else if (MenuController.type.ToString().Equals("Multiplayer"))
+            else if (sceneName == "Multi_Level_3")
                 SceneManager.LoadScene("DeathSceneMulti3");
         }
     }

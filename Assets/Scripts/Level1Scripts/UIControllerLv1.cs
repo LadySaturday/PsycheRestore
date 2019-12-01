@@ -8,6 +8,7 @@ public class UIControllerLv1 : MonoBehaviour
 {
     public GameObject imagePanel;
     public GameObject itemsCollected;
+    public GameObject InstructionLvl1;
     private static RawImage collectibleImage;
     private static Text itemsCollectedText;
     private static int numOfItemsCollected = 0;
@@ -41,7 +42,7 @@ public class UIControllerLv1 : MonoBehaviour
             ResumeGame();
         }
 
-        if(GameObject.Find("Canvas/Instruction"))
+        if(GameObject.Find("Canvas/InstructionLvl1"))
         {
             StartCoroutine(ShowInstruction8Sec());
         }
@@ -70,7 +71,6 @@ public class UIControllerLv1 : MonoBehaviour
     IEnumerator ShowInstruction8Sec()
     {
         yield return new WaitForSeconds(8);
-        GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
-        GameObject.Find("Canvas/Instruction").gameObject.SetActive(false);
+        InstructionLvl1.gameObject.SetActive(false);
     }
 }
