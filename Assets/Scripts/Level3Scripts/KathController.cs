@@ -15,13 +15,11 @@ public class KathController : MonoBehaviour
     private States currentState;
     private bool saidChaseTaunt = false;
 
-    string sceneName;
+    public string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        string sceneName = SceneManager.GetActiveScene().name;
         timer.text = startingTime.ToString();
         StartCoroutine(Countdown());
         navMeshAgent = GetComponent<NavMeshAgent>();
