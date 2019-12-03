@@ -101,6 +101,10 @@ public class AnnaController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         counterValue++;
         countDownDisplay--; 
+        if (countDownDisplay == 100)
+        {
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Tick tock tick tock. I'm waiting..." });
+        }
         if (countDownDisplay == 30)
         {
             GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Hurry Up. I WANT my bear..." });

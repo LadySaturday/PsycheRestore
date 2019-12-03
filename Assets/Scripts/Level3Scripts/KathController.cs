@@ -84,8 +84,8 @@ public class KathController : MonoBehaviour
 
     void Chase()
     {
-        navMeshAgent.SetDestination(player.position);
-        float d2P = Vector3.Distance(transform.position, player.position);
+        //navMeshAgent.SetDestination(player.position);
+        //float d2P = Vector3.Distance(transform.position, player.position);
         if (!GameObject.Find("DialogManager").GetComponent<DialogManager>().dialogPanel.activeInHierarchy && saidChaseTaunt == false)
         {
             saidChaseTaunt = true;

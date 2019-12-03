@@ -154,6 +154,7 @@ public class CharlieController : MonoBehaviour
             player.GetComponentInChildren<AudioSource>().Pause();
             player.GetComponentInChildren<AudioSource>().clip = chaseMusic;
             player.GetComponentInChildren<AudioSource>().Play();
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "COME HERE! LET ME SEE THAT PRETTY FACE" });
         }
         if (toState == States.Patrol)
         {
@@ -193,8 +194,7 @@ public class CharlieController : MonoBehaviour
         float angleToPlayer = Vector3.Angle(targetDir, transform.forward);
         RaycastHit hitInfo;
         Physics.Raycast(myPosition, targetDir, out hitInfo, chaseDistance);
-
-        if (d2P < chaseDistance && hitInfo.collider.gameObject.tag == "Player" && angleToPlayer >= -60 && angleToPlayer <= 60)
+        if (d2P < chaseDistance && hitInfo.collider.gameObject.tag == "Player" && angleToPlayer >= -85 && angleToPlayer <= 85)
             ChangeState(States.Chase);
         else if (d2P <= attackDistance)
             ChangeState(States.Attack);
@@ -204,6 +204,7 @@ public class CharlieController : MonoBehaviour
 
     void InvestigateNoise()
     {
+        GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "I heard you..." });
         Debug.Log("Investigate");
         navMeshAgent.SetDestination(player.transform.position);
     }
@@ -220,7 +221,7 @@ public class CharlieController : MonoBehaviour
         navMeshAgent.SetDestination(player.transform.position);
         if (d2P <= attackDistance)
             ChangeState(States.Attack);
-        else if (d2P >= chaseDistance || hitInfo.collider.gameObject.tag != "Player" || angleToPlayer <= -60 || angleToPlayer >= 60)
+        else if (d2P >= chaseDistance || hitInfo.collider.gameObject.tag != "Player" || angleToPlayer <= -85 || angleToPlayer >= 85)
             ChangeState(States.Patrol);
     }
 
@@ -240,6 +241,13 @@ public class CharlieController : MonoBehaviour
 
     void GotoNextPoint()
     {
+        int randNum = Random.Range(0, 10);
+        if (randNum == 0)
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Where are you? I need to show you something." });
+        else if (randNum == 1)
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "Have you seen my knife? It's very shiny. Let me show it to you." });
+        else if (randNum == 2)
+            GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] { "I will find you. When I do, we will have lots of fun." });
         navMeshAgent.SetDestination(points[destPoint].position);
         Debug.Log("Travelling to: " + points[destPoint].gameObject.name);
         destPoint++;
