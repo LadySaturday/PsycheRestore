@@ -11,7 +11,7 @@ public class HazardObject : MonoBehaviour
     public GameObject DotDiedMessage;
     Transform secondaryPlayer;
     float extinguishDistance = 2;
-    static int extinguishTimes = 10;
+    static int extinguishTimes = 5;
     static byte g = 255;
     static byte b = 255;
 
