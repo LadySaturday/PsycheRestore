@@ -35,8 +35,6 @@ public class OptionMenuController : MonoBehaviour
                 EnableOrDisableGO();
             }
         }
-
-        Debug.Log(sceneName + "-----");
     }
 
     void EnableOrDisableGO()
