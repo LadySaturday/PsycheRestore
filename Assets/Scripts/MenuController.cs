@@ -104,4 +104,10 @@ public class MenuController : MonoBehaviour
         soundVolumeSlider.value = soundVolume;
     }
 
+
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

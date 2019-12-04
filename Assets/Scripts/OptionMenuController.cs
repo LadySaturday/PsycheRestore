@@ -79,6 +79,22 @@ public class OptionMenuController : MonoBehaviour
         {
             GameObject.Find("Anna@tpose").GetComponent<AnnaControllerMulti>().enabled = true;
         }
+        else if (sceneName == "Level_3" && isOMOpen)
+        {
+            GameObject.Find("Kath 1").GetComponent<KathController>().enabled = false;
+        }
+        else if (sceneName == "Level_3" && !isOMOpen)
+        {
+            GameObject.Find("Kath 1").GetComponent<KathController>().enabled = true;
+        }
+        else if (sceneName == "Multi_Level_3" && isOMOpen)
+        {
+            GameObject.Find("Kath 1").GetComponent<KathController>().enabled = false;
+        }
+        else if (sceneName == "Multi_Level_3" && !isOMOpen)
+        {
+            GameObject.Find("Kath 1").GetComponent<KathController>().enabled = true;
+        }
     }
 
     public void OpenInstruction()
