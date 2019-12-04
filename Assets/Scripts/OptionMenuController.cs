@@ -71,6 +71,14 @@ public class OptionMenuController : MonoBehaviour
         {
             GameObject.Find("Anna@tpose").GetComponent<AnnaController>().enabled = true;
         }
+        else if (sceneName == "Multi_Level_2" && isOMOpen)
+        {
+            GameObject.Find("Anna@tpose").GetComponent<AnnaControllerMulti>().enabled = false;
+        }
+        else if (sceneName == "Multi_Level_2" && !isOMOpen)
+        {
+            GameObject.Find("Anna@tpose").GetComponent<AnnaControllerMulti>().enabled = true;
+        }
     }
 
     public void OpenInstruction()
