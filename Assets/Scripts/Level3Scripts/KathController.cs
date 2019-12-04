@@ -53,6 +53,9 @@ public class KathController : MonoBehaviour
 
     void Wait()
     {
+        //rock. comment out for twitchy idle
+        gameObject.GetComponent<Animator>().SetBool("Rock", true);
+
         float d2P = Vector3.Distance(transform.position, player.position);
         if (startingTime == 30)
         {
@@ -84,6 +87,7 @@ public class KathController : MonoBehaviour
     {
         //navMeshAgent.SetDestination(player.position);
         //float d2P = Vector3.Distance(transform.position, player.position);
+        
         if (!GameObject.Find("DialogManager").GetComponent<DialogManager>().dialogPanel.activeInHierarchy && saidChaseTaunt == false)
         {
             saidChaseTaunt = true;
