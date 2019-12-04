@@ -53,6 +53,7 @@ public class KathController : MonoBehaviour
 
     void Wait()
     {
+        gameObject.GetComponent<Animator>().SetBool("Rock", true);
         float d2P = Vector3.Distance(transform.position, player.position);
         if (startingTime == 30)
         {
