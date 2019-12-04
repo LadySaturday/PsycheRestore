@@ -36,7 +36,7 @@ public class OptionMenuController : MonoBehaviour
             }
         }
 
-        Debug.Log(isOMOpen);
+        Debug.Log(sceneName + "-----");
     }
 
     void EnableOrDisableGO()
@@ -62,6 +62,14 @@ public class OptionMenuController : MonoBehaviour
             GameObject.Find("Charlie").GetComponent<CharlieController>().enabled = true;
             GameObject.FindGameObjectWithTag("SecondaryPlayer").GetComponent<DotController>().enabled = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        }
+        else if (sceneName == "Level_2" && isOMOpen)
+        {
+            GameObject.Find("Anna@tpose").GetComponent<AnnaController>().enabled = false;
+        }
+        else if (sceneName == "Level_2" && !isOMOpen)
+        {
+            GameObject.Find("Anna@tpose").GetComponent<AnnaController>().enabled = true;
         }
     }
 
