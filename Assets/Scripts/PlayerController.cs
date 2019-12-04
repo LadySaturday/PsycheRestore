@@ -35,21 +35,21 @@ public class PlayerController : MonoBehaviour
 
         if (mouseRotate)
         {
-            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X")) * Mathf.Sign(Input.GetAxis("Horizontal")), Space.World);//mouse rotate
+            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X")) * Mathf.Sign(Input.GetAxis("P1_Horizontal")), Space.World);//mouse rotate
 
             if (Input.GetKey("up") || Input.GetKey("down"))
             {
-                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+                transform.Translate(0, 0, Input.GetAxis("P1_Vertical") * Time.deltaTime * movementSpeed);
             }
 
             if (Input.GetKey("left"))
             {
-                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0,0 );
+                transform.Translate(Input.GetAxis("P1_Horizontal") * Time.deltaTime * movementSpeed, 0,0 );
                 strafe = 1;
             }
             else if (Input.GetKey("right"))
             {
-                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+                transform.Translate(Input.GetAxis("P1_Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
                 strafe = 2;
             }
             else
