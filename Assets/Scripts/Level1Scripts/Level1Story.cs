@@ -14,6 +14,7 @@ public class Level1Story : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cntBtn.gameObject.SetActive(false);
         StartCoroutine(FadeTextToFullAlpha(1f, texts[index]));
     }
 
@@ -45,6 +46,7 @@ public class Level1Story : MonoBehaviour
 
     public void Continue()
     {
+        cntBtn.gameObject.SetActive(false);
         StartCoroutine(Transition());
     }
 
@@ -66,6 +68,8 @@ public class Level1Story : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
             yield return null;
         }
+        if (index != texts.Length - 1)
+            cntBtn.gameObject.SetActive(true);
     }
 
     public IEnumerator FadeTextToZeroAlpha(float t, TextMeshProUGUI i)
