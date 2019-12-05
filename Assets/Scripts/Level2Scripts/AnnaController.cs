@@ -22,6 +22,7 @@ public class AnnaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        counterValue = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         countDownDisplay = totalTime;
         StartCoroutine("Counter");

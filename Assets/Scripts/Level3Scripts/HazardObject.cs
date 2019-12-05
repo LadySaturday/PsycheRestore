@@ -11,7 +11,7 @@ public class HazardObject : MonoBehaviour
     public GameObject DotDiedMessage;
     Transform secondaryPlayer;
     float extinguishDistance = 2;
-    static int extinguishTimes = 5;
+    static int extinguishTimes = 3;
     static byte g = 255;
     static byte b = 255;
 
@@ -22,6 +22,7 @@ public class HazardObject : MonoBehaviour
     {
         // Yizhi 11/30/2019
         sceneName = SceneManager.GetActiveScene().name;
+        extinguishTimes = 3;
         
         if (sceneName == "Multi_Level_3")
         {
@@ -50,12 +51,12 @@ public class HazardObject : MonoBehaviour
                 var main = secondaryPlayer.GetChild(0).GetComponent<ParticleSystem>().main;
                 Color c = new Color32(255, g, b, 255);
                 main.startColor = c;
+                gameObject.active = false;
                 if (extinguishTimes == 0)
                 {
                     DotDiedMessage.SetActive(true);
                     Destroy(secondaryPlayer.gameObject);
                 }
-                gameObject.active = false;
             }
         }
     }
