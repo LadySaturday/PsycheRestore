@@ -109,6 +109,7 @@ public class CharlieController : MonoBehaviour
             {
                 Debug.Log("d2P <= stopDistance");
                 StartCoroutine(Stop());
+                stopDistance = -1;
             }
         }
     }
