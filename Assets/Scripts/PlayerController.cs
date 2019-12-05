@@ -63,11 +63,11 @@ public class PlayerController : MonoBehaviour
             // updated by Yizhi 11/10/2019
             if (Input.GetKey("up") || Input.GetKey("down"))
             {
-                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+                transform.Translate(0, 0, Input.GetAxis("P1_Vertical") * Time.deltaTime * movementSpeed);
             }
             if (Input.GetKey("right") || Input.GetKey("left"))
             {
-                 transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+                 transform.Rotate(0, Input.GetAxis("P1_Horizontal") * Time.deltaTime * rotationSpeed, 0);
           
             }
           
