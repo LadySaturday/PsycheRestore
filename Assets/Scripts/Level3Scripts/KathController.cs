@@ -74,8 +74,8 @@ public class KathController : MonoBehaviour
             {
                 GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] {
                 "JULIE: This ends here Kath I don't need your 'help' anymore.",
-                "KATHERINE: Y..y...you can't do this without me....you can't live! You will die from the reality of your past. ",
-                "JULIE: My past is mine and mine alone. You three tought me that I need to deal with my past. The good of it and all the bad. I need to face it as me...as Juile." });
+                "KATHERINE: Y..y...you can't do this without me....you can't live without me!",
+                "JULIE: My past is mine to face alone. You three tought me that...I need to face it as me...as Juile." });
                 StartCoroutine(Win());
             }
         }
