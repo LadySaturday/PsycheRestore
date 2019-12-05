@@ -123,7 +123,6 @@ public class CharlieController : MonoBehaviour
         secondaryPlayer.gameObject.GetComponent<DotController>().enabled = false;
         secondaryPlayer.gameObject.GetComponent<MeshRenderer>().enabled = false;
         secondaryPlayer.transform.GetChild(0).gameObject.SetActive(false);
-        stopDistance = 999999999;
         GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
         transform.GetChild(0).gameObject.SetActive(false);
