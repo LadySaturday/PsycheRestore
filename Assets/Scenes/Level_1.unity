@@ -58109,7 +58109,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: ecb26d47550a99a4488486cd0ba3a4b9, type: 3}
+      objectReference: {fileID: 9000000, guid: 0766e37186007ec468815945b12bf6a1, type: 3}
+    - target: {fileID: 3448993844796806414, guid: ada315a7b7e767747b8469c0491be475,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448993844796806414, guid: ada315a7b7e767747b8469c0491be475,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4708313717950642292, guid: ada315a7b7e767747b8469c0491be475,
         type: 3}
       propertyPath: m_LocalPosition.x
