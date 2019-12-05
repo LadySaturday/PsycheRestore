@@ -119,7 +119,10 @@ public class CharlieController : MonoBehaviour
         Debug.Log("Stopping");
         navMeshAgent.speed = 0;
         transform.GetChild(0).gameObject.SetActive(true);
-        Destroy(secondaryPlayer.gameObject);
+        //Destroy(secondaryPlayer.gameObject);
+        secondaryPlayer.gameObject.GetComponent<DotController>().enabled = false;
+        secondaryPlayer.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        secondaryPlayer.transform.GetChild(0).gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
         transform.GetChild(0).gameObject.SetActive(false);
