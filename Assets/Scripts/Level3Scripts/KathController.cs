@@ -14,6 +14,7 @@ public class KathController : MonoBehaviour
     public enum States { Wait, Chase, Attack };
     private States currentState;
     private bool saidChaseTaunt = false;
+    public AudioClip theme;
 
     public string sceneName;
 
@@ -27,6 +28,8 @@ public class KathController : MonoBehaviour
         GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] {
                 "JULIE: Kath, why are you doing this?",
                 "KATHERINE: You won't understand Julie....this is what needs to be done to keep you safe."});
+        player.GetComponentInChildren<AudioSource>().clip = theme;
+        player.GetComponentInChildren<AudioSource>().Play();
     }
 
     // Update is called once per frame

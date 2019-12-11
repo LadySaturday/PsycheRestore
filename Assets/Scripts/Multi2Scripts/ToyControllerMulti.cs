@@ -15,6 +15,7 @@ public class ToyControllerMulti : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        count = 0;
         dollCount.text = (count.ToString() + "/7");
 
         // Yizhi 11/24/2019

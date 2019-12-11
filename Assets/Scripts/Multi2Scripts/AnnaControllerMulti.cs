@@ -16,6 +16,7 @@ public class AnnaControllerMulti : MonoBehaviour
     public bool playerHasToy;
     public int toysLeft;
     public GameObject bearImage;
+    public AudioClip theme;
 
     // Yizhi 11/24/2019
     Transform secondaryPlayer;
@@ -34,6 +35,9 @@ public class AnnaControllerMulti : MonoBehaviour
 
         // Yizhi 11/24/2019
         secondaryPlayer = GameObject.FindGameObjectWithTag("SecondaryPlayer").transform;
+
+        player.GetComponentInChildren<AudioSource>().clip = theme;
+        player.GetComponentInChildren<AudioSource>().Play();
     }
 
     // Update is called once per frame

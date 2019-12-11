@@ -18,6 +18,7 @@ public class AnnaController : MonoBehaviour
     public int toysLeft;
     public GameObject bearImage;
     private NavMeshAgent navMeshAgent;
+    public AudioClip theme;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class AnnaController : MonoBehaviour
         countDownDisplay = totalTime;
         StartCoroutine("Counter");
         navMeshAgent = GetComponent<NavMeshAgent>();
+        player.GetComponentInChildren<AudioSource>().clip = theme;
+        player.GetComponentInChildren<AudioSource>().Play();
     }
 
     // Update is called once per frame
