@@ -20,8 +20,12 @@ public class CollectiblesController : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("OnTriggerEnter");
-        GetComponent<BoxCollider>().enabled = false;
-        Destroy(gameObject);
-        UIControllerLv1.SetImage(image);
+        //GetComponent<BoxCollider>().enabled = false;
+        //Destroy(gameObject);
+        if (col.tag == "Player")
+        {
+            gameObject.SetActive(false);
+            UIControllerLv1.SetImage(image);
+        }
     }
 }

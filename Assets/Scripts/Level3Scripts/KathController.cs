@@ -72,6 +72,8 @@ public class KathController : MonoBehaviour
         {
             if (!GameObject.Find("DialogManager").GetComponent<DialogManager>().dialogPanel.activeInHierarchy)
             {
+                timer.gameObject.SetActive(false);
+                GameObject.Find("TimeLeft").SetActive(false);
                 GameObject.Find("DialogManager").GetComponent<DialogManager>().ShowDialog(new string[] {
                 "JULIE: This ends here Kath I don't need your 'help' anymore.",
                 "KATHERINE: Y..y...you can't do this without me....you can't live without me!",
@@ -124,7 +126,7 @@ public class KathController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         timer.text = startingTime--.ToString();
-        if (startingTime >= 0)
+        if (startingTime >= 0 && timer.gameObject.activeInHierarchy)
             StartCoroutine(Countdown());
     }
 

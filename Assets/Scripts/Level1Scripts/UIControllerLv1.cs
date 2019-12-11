@@ -24,7 +24,7 @@ public class UIControllerLv1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (numOfItemsCollected == 7)
+        if (numOfItemsCollected >= 7)
         {
             Debug.Log("Next Level");
             Destroy(GameObject.Find("Charlie"));
